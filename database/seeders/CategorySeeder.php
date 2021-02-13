@@ -15,14 +15,15 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        $categories = array('');
+        $categories = array('fountation', 'decoration');
+
         $now = Carbon::now();
-        foreach ($categories as $category{
-        	DB::table('categories')->insert({
+        foreach ($categories as $category){
+        	DB::table('categories')->insert([
         		'name' => $category,
         		'created_at' => $now,
         		'updated_at' => $now,
-        	});
+        	]);
         }
     }
 }

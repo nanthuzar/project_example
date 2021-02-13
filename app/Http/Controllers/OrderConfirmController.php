@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Category;
-class CategoryController extends Controller
+use App\Models\OrderConfirm;
+use App\Models\Item;
+use App\Models\Carpenter;
+
+class OrderConfirmController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +16,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
-        $categories = Category::all();
-        return view('backend.category.list', compact('categories'));
+        return view('backend.orderconfirm.list');
     }
 
     /**
@@ -25,8 +26,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
-        return view('backend.category.new');
+        $items=Item::all();
+        $carpenters=Carpenter::all();
+        return view('backend.orderconfirm.new',compact('items','carpenters'));
     }
 
     /**
@@ -38,12 +40,22 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
-        $validator = $request->validate(['name' => ['required', 'min:3', 'max:100', 'unique:categories']]);
-        $category = new Category();
-        $category->name = $request->name;
-        $category->save();
+        $carpentername = $request->carpentername;
+        $itemname = $request->itemname;
+        $qty = $request->qty;
+        $confirmdate = $request->confirmdate;
+        $duedate = $request->duedate;
 
-        return redirect()->route('category.index')->with('successMsg','New Category is ADDED in your data.');
+        $orderconfirm = new OrderConfirm();
+        $orderconfirm->carpenter_id = $carpentername;
+        $orderconfirm->item_id = $itemname;
+        $orderconfirm->qty = $qty;      
+        $orderconfirm->due_date = $duedate;
+        $orderconfirm->confirm_date = $confirmdate;
+
+        $orderconfirm->save();
+
+        return redirect()->route('orderconfirm.index')->with('successMsg','New Item is ADDED in your data');
     }
 
     /**
@@ -66,8 +78,6 @@ class CategoryController extends Controller
     public function edit($id)
     {
         //
-        $category = Category::find($id);
-        return view('backend.category.edit',compact('category'));
     }
 
     /**
@@ -80,11 +90,6 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $name = $request->name;
-        $data = ['name'=>$name];
-
-        Category::where('id', $id)->update($data);
-        return redirect()->route('category.index')->with('successMsg','Existing Category: is UPDATED in your data.');
     }
 
     /**
@@ -96,8 +101,5 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
-        $category = Category::find($id);
-        $category->delete();
-        return redirect()->route('category.index')->with('successMsg','Existing Category:'.$category->name.'is DELETED in your data.');
     }
 }

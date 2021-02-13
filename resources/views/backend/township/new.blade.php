@@ -1,22 +1,22 @@
 <x-backend>
-            <h5 class="mb-0" ><strong>Categories</strong></h5>
-                <span class="text-secondary">Ecommerce <i class="fa fa-angle-right"></i> categories</span>
+            <h5 class="mb-0" ><strong>Township</strong></h5>
+                <span class="text-secondary">Township <i class="fa fa-angle-right"></i> New</span>
                 
                 <div class="mt-4 mb-4 p-3 bg-white border shadow-sm lh-sm">
                     <!--Product Listing-->
                     <div class="product-list">
                         
                         <div class="row border-bottom mb-4">
-                            <div class="col-sm-8 pt-2"></div>
+                            <div class="col-sm-8 pt-2"><h6 class="mb-4 bc-header">Adding Township</h6></div>
                             <div class="col-sm-4 text-right pb-3">
-                                <a class="btn btn-round btn-theme ms-auto" href="{{ route('category.index')}}">
+                                <a class="btn btn-round btn-theme ms-auto" href="{{ route('township.index')}}">
                                     <i class="fas fa-arrow-circle-left"></i>Go Back
                                 </a>
                                 
                             </div>
                         </div>
                         
-                        <form action="{{ route('category.store') }}" method="POST">
+                        <form action="{{ route('township.store') }}" method="POST">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group row">

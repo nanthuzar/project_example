@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Category;
-class CategoryController extends Controller
+use App\Models\Township;
+
+class TownshipController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,8 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        $categories = Category::all();
-        return view('backend.category.list', compact('categories'));
+        $townships =Township::all();
+        return view('backend.township.list',compact('townships'));
     }
 
     /**
@@ -26,7 +27,7 @@ class CategoryController extends Controller
     public function create()
     {
         //
-        return view('backend.category.new');
+        return view('backend.township.new');
     }
 
     /**
@@ -38,12 +39,13 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
-        $validator = $request->validate(['name' => ['required', 'min:3', 'max:100', 'unique:categories']]);
-        $category = new Category();
-        $category->name = $request->name;
-        $category->save();
-
-        return redirect()->route('category.index')->with('successMsg','New Category is ADDED in your data.');
+        $validator=$request->validate([
+            'name'=>['required','min:3','max:100','unique:townships']
+        ]);
+        $township=new Township();
+        $township->name=$request->name;
+        $township->save();
+        return redirect()->route('township.index')->with('successMsg','New Township is ADDED in your data.');
     }
 
     /**
@@ -66,8 +68,8 @@ class CategoryController extends Controller
     public function edit($id)
     {
         //
-        $category = Category::find($id);
-        return view('backend.category.edit',compact('category'));
+        $township=Township::find($id);
+        return view('backend.township.edit',compact('township'));
     }
 
     /**
@@ -80,12 +82,13 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $name = $request->name;
-        $data = ['name'=>$name];
-
-        Category::where('id', $id)->update($data);
-        return redirect()->route('category.index')->with('successMsg','Existing Category: is UPDATED in your data.');
-    }
+        $name=$request->name;
+        $data=[
+        'name'=>$name
+        ];
+        Township::where('id',$id)->update($data);
+        return redirect()->route('township.index')->with('successMsg','Existing Township is UPDATED in your data.');
+    }   
 
     /**
      * Remove the specified resource from storage.
@@ -96,8 +99,8 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
-        $category = Category::find($id);
-        $category->delete();
-        return redirect()->route('category.index')->with('successMsg','Existing Category:'.$category->name.'is DELETED in your data.');
+        $township=Township::find($id);
+        $township->delete();
+        return redirect()->route('township.index')->with('successMsg','Existing Township is DELETED in your data.');
     }
 }

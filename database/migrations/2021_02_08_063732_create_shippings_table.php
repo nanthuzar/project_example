@@ -15,6 +15,9 @@ class CreateShippingsTable extends Migration
     {
         Schema::create('shippings', function (Blueprint $table) {
             $table->id();
+            $table->string('fee');
+            $table->foreignId('township_id')->references('id')->on('townships')->onDelete('Cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

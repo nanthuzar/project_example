@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTownshipsTable extends Migration
+class CreateItemCategoryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateTownshipsTable extends Migration
      */
     public function up()
     {
-        Schema::create('townships', function (Blueprint $table) {
+        Schema::create('item_category', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->softDeletes();
+            $table->foreignId('item_id')->references('id')->on('items')->onDelete('cascade');
+            $table->foreignId('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateTownshipsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('townships');
+        Schema::dropIfExists('item_category');
     }
 }

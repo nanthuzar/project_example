@@ -15,6 +15,10 @@ class CreateCarpentersTable extends Migration
     {
         Schema::create('carpenters', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('phone');
+            //$table->foreignId('item_id')->references('id')->on('items')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
