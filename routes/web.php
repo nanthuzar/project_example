@@ -12,6 +12,9 @@ use App\Http\Controllers\TownshipController;
 use App\Http\Controllers\CarpenterOrderController;
 use App\Http\Controllers\OrderConfirmController;
 
+use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\AuthController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +34,24 @@ use App\Http\Controllers\OrderConfirmController;
         'phpVersion' => PHP_VERSION,
     ]);
 });*/
+Route::resource('/item',ItemController::class)->middleware('auth');
+Route::resource('/category',CategoryController::class)->middleware('auth');
+
+
+
+
+
+Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
+Route::get('detail/{id}', [FrontendController::class, 'detail'])->name('frontend.detail');
+Route::get('cart',[FrontendController::class, 'cart'])->name('frontend.cart');
+Route::post('/storeorder',[FrontendController::class, 'storeorder'])->name('/storeorder');
+
+Route::get('login',[AuthController::class, 'loginform'])->name('login');
+Route::post('login',[AuthController::class, 'login']);
+Route::get('register',[AuthController::class, 'registerForm'])->name('register');
+Route::post('register',[AuthController::class, 'register']);
+
+
 
 Route::resource('/category', CategoryController::class);
 Route::resource('/item', ItemController::class);

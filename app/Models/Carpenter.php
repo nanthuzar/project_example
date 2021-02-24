@@ -22,7 +22,7 @@ class Carpenter extends Model
     }
 
     public function orderconfirms(){
-    	return $this->hasMany('App\Models\Orderconfirm','orderconfirms');
+    	return $this->hasMany('App\Models\Orderconfirm');
     }
 
 

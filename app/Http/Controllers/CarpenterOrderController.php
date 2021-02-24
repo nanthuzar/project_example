@@ -6,10 +6,15 @@ use Illuminate\Http\Request;
 use App\Models\CarpenterOrder;
 use App\Models\Item;
 use App\Models\Carpenter;
-
+use App\Models\Status;
+use Spatie\Permission\Models\Role;
 
 class CarpenterOrderController extends Controller
 {
+    public function __construct(){
+        $this->middleware(['role:carpenter|admin']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +24,8 @@ class CarpenterOrderController extends Controller
     {
         //
         $carpenterorders =CarpenterOrder::all();
-        return view('backend.carpentersorder.list',compact('carpenterorders'));
+        $statuses=Status::all();
+        return view('backend.carpentersorder.list',compact('carpenterorders','statuses'));
     }
 
     /**
@@ -33,8 +39,9 @@ class CarpenterOrderController extends Controller
         $carpenterorders=CarpenterOrder::all();
         $items=Item::all();
         $carpenters=Carpenter::all();
+        $statuses=Status::all();
 
-        return view('backend.carpentersorder.new',compact('carpenterorders','items','carpenters'));
+        return view('backend.carpentersorder.new',compact('carpenterorders','items','carpenters','statuses'));
     }
 
     /**
@@ -49,12 +56,14 @@ class CarpenterOrderController extends Controller
         $itemname = $request->itemname;
         $qty = $request->qty;
         $duedate = $request->duedate;
+        $status = $request->status;
 
         $carpenterorder = new Carpenterorder();
         $carpenterorder->carpenter_id = $carpentername;
         $carpenterorder->item_id = $itemname;
         $carpenterorder->qty = $qty;
         $carpenterorder->due_date = $duedate;
+        $carpenterorder->status = $status;
 
         $carpenterorder->save();
         

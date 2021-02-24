@@ -47,9 +47,9 @@
                                         <td>{{ $item->price }}</td>
                                         <td>{{ $item->description }}</td>
                                         <td>
-                                            {{-- @foreach($item->categories as $category) --}}
-                                            <span>{{ $item->category->name}}</span>
-                                           {{--  @endforeach --}}
+                                            {{-- @foreach($item->categories as $category) --}} 
+                                            {{ $item->category->name }}
+                                           {{-- @endforeach --}}
                                         </td>
                                         <td>
                                         <a href="{{ route('item.edit',$item->id)}}" class="btn btn-link text-theme p-1"><i class="fa fa-pencil"></i></a>

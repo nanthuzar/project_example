@@ -46,6 +46,16 @@
                                         <input type="date" class="form-control"  id="duedate" name="duedate" placeholder="Enter Deadline">
                                     </div>
                                 </div>
+                                <div class="form-group row">
+                                    <label for="status" class="col-sm-2 col-form-label"> Status </label>
+                                    <select class="form-control select2" name="status">
+                                        <option value="0"> Choose Status </option>
+                                        @foreach($statuses as $status)
+                                            <option value="{{ $status->id }}">{{ $status->name }}</option>
+                                        @endforeach
+                                        
+                                    </select>
+                                </div>
                                 <div class="card-action">
                                     <button type="submit" class="btn btn-primary"><i class="icofont-save"></i> Save</button>
                                     <button type="reset" class="btn btn-outline-secondary"><i class="icofont-close"></i></i> Cancel </button>

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use App\Models\CarpenterOrder;
 use App\Models\OrderConfirm;
-use App\Models\Item;
-use App\Models\Carpenter;
 
 class OrderConfirmController extends Controller
 {
@@ -16,7 +16,10 @@ class OrderConfirmController extends Controller
      */
     public function index()
     {
-        return view('backend.orderconfirm.list');
+        //
+        $orderconfirms = Orderconfirm::all();
+        $carpenterOrders = CarpenterOrder::all();
+        return view('backend.orderconfirm.list',compact('orderconfirms','carpenterOrders'));
     }
 
     /**
@@ -26,9 +29,8 @@ class OrderConfirmController extends Controller
      */
     public function create()
     {
-        $items=Item::all();
-        $carpenters=Carpenter::all();
-        return view('backend.orderconfirm.new',compact('items','carpenters'));
+        //
+        return view('backend.orderconfirm.new');
     }
 
     /**
@@ -40,22 +42,6 @@ class OrderConfirmController extends Controller
     public function store(Request $request)
     {
         //
-        $carpentername = $request->carpentername;
-        $itemname = $request->itemname;
-        $qty = $request->qty;
-        $confirmdate = $request->confirmdate;
-        $duedate = $request->duedate;
-
-        $orderconfirm = new OrderConfirm();
-        $orderconfirm->carpenter_id = $carpentername;
-        $orderconfirm->item_id = $itemname;
-        $orderconfirm->qty = $qty;      
-        $orderconfirm->due_date = $duedate;
-        $orderconfirm->confirm_date = $confirmdate;
-
-        $orderconfirm->save();
-
-        return redirect()->route('orderconfirm.index')->with('successMsg','New Item is ADDED in your data');
     }
 
     /**

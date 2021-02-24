@@ -17,5 +17,8 @@ class DatabaseSeeder extends Seeder
         //$this->call(CategorySeeder::class);
         // $this->call(ShippingSeeder::class);
         //$this->call(TownshipSeeder::class);
+        //$this->call(RoleSeeder::class);
+        // $this->call(UserSeeder::class);
+        $this->call(StatusSeeder::class);
     }
 }

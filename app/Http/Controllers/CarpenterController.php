@@ -5,9 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Carpenter;
 // use App\Models\Item;
+use Spatie\Permission\Models\Role;
 
 class CarpenterController extends Controller
 {
+    public function __construct(){
+        $this->middleware(['role:admin']);
+    }
     /**
      * Display a listing of the resource.
      *

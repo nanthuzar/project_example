@@ -28,4 +28,9 @@ class CarpenterOrder extends Model
     public function item(){
         return $this->belongsTo('App\Models\Item');
     }
+
+    // public function status(){
+    //     return $this->hasOne('App\Models\Status');
+    // }
+
 }

@@ -35,12 +35,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @php $i = 1; @endphp
+                            @php $i = 1; @endphp
                             @foreach($orderconfirms as $orderconfirm) --}}
                                 
                             <tr>
                                 <td></td>
-                                <td></td>
+                                <td>{{ $orderconfirm->item->name}}</td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -55,7 +55,7 @@
 	                                </form> --}}
                             	</td>
                             </tr>
-                            {{-- @endforeach --}}            
+                            @endforeach            
 	                    </tbody>
 	                </table>
 	            </div>

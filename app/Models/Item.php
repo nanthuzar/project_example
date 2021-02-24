@@ -29,8 +29,8 @@ class Item extends Model
         return $this->belongsToMany('App\Models\CarpenterOrder', 'carpenterorder_item','carpenterorder_id','item_id')->withPivot('qty');
     }
 
-    public function orderconfirms(){
-        return $this->hasMany('App\Models\OrderConfirm');
+    public function orderconfirm(){
+        return $this->hasOne('App\Models\OrderConfirm');
 
 
     }
