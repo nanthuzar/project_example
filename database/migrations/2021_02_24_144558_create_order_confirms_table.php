@@ -13,7 +13,7 @@ class CreateOrderconfirmsTable extends Migration
      */
     public function up()
     {
-        Schema::create('orderconfirms', function (Blueprint $table) {
+        Schema::create('order_confirms', function (Blueprint $table) {
             $table->id();
             $table->foreignId('carpenter_id')->references('id')->on('carpenters')->onDelete('cascade');
             $table->foreignId('item_id')->references('id')->on('items')->onDelete('cascade');
@@ -33,6 +33,6 @@ class CreateOrderconfirmsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orderconfirms');
+        Schema::dropIfExists('order_confirms');
     }
 }

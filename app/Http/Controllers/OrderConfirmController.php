@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Models\CarpenterOrder;
 use App\Models\OrderConfirm;
+use App\Models\Carpenter;
+use App\Models\Item;
+use App\Models\Status;
 
 class OrderConfirmController extends Controller
 {
@@ -19,7 +22,7 @@ class OrderConfirmController extends Controller
         //
         $orderconfirms = Orderconfirm::all();
         $carpenterOrders = CarpenterOrder::all();
-        return view('backend.orderconfirm.list',compact('orderconfirms','carpenterOrders'));
+        return view('backend.orderconfirm.list',compact('carpenterOrders','orderconfirms'));
     }
 
     /**
@@ -30,7 +33,9 @@ class OrderConfirmController extends Controller
     public function create()
     {
         //
-        return view('backend.orderconfirm.new');
+        $carpenters = Carpenter::all();
+        $items = Item::all();
+        return view('backend.orderconfirm.new',compact('carpenters','items'));
     }
 
     /**
@@ -41,7 +46,22 @@ class OrderConfirmController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $carpentername = $request->carpentername;
+        $itemname = $request->itemname;
+        $qty = $request->qty;
+        $confirmdate = $request->confirmdate;
+        $duedate = $request->duedate;
+
+        $orderconfirm = new OrderConfirm();
+        $orderconfirm->carpenter_id = $carpentername;
+        $orderconfirm->item_id = $itemname;
+        $orderconfirm->qty = $qty;
+        $orderconfirm->confirm_date = $confirmdate;
+        $orderconfirm->due_date = $duedate;
+
+        $orderconfirm->save();
+
+        return redirect()->route('orderconfirm.index')->with('successMsg','New Item is ADDED in your data');
     }
 
     /**
@@ -63,7 +83,8 @@ class OrderConfirmController extends Controller
      */
     public function edit($id)
     {
-        //
+        $statuses = Status::all();
+        return view('backend.orderconfirm.edit',compact('statuses'));
     }
 
     /**
@@ -76,6 +97,16 @@ class OrderConfirmController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $confirmdate = $request->confirmdate;
+        $status = $request->status;
+
+        $orderconfirm = OrderConfirm::find($id);
+        $orderconfirm->confirm_date = $confirmdate;
+        $orderconfirm->status = $status;
+        
+        $orderconfirm->save();
+
+        return redirect()->route('orderconfirm.index')->with('successMsg','New Order is ADDED in your data.');
     }
 
     /**

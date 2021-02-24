@@ -33,4 +33,8 @@ class CarpenterOrder extends Model
     //     return $this->hasOne('App\Models\Status');
     // }
 
+    public function orderconfirm(){
+        return $this->hasOne('App\Models\OrderConfirm');
+    }
+
 }

@@ -36,18 +36,19 @@
                         </thead>
                         <tbody>
                             @php $i = 1; @endphp
-                            @foreach($orderconfirms as $orderconfirm) --}}
+                            @foreach($orderconfirms as $orderconfirm)
                                 
                             <tr>
+                                <td>{{ $i++ }}</td>
+                                <td>{{ $orderconfirm->carpenter->name }}</td>
+                                <td>{{ $orderconfirm->item->name }}</td>
+                                <td>{{ $orderconfirm->qty}}</td>
+                                <td>{{ $orderconfirm->confirm_date}}</td>
+                                <td>{{ $orderconfirm->due_date}}</td>
                                 <td></td>
-                                <td>{{ $orderconfirm->item->name}}</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                             
                                 <td>
-	                                <a href="" class="btn btn-link text-theme p-1"><i class="fa fa-pencil"></i></a>
+	                                <a href="{{ route('orderconfirm.edit',$orderconfirm->id)}}" class="btn btn-link text-theme p-1"><i class="fa fa-pencil"></i></a>
 	                                {{-- <form class="d-inline-block" action="" method="POST" onsubmit="return confirm('Are you sure want to delete?')">
 	                                   @csrf
 	                                   @method('DELETE')
@@ -55,8 +56,8 @@
 	                                </form> --}}
                             	</td>
                             </tr>
-                            @endforeach            
-	                    </tbody>
+                         @endforeach 
+                         </tbody>
 	                </table>
 	            </div>
 	        </div>

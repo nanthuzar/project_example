@@ -9,7 +9,15 @@ class OrderConfirm extends Model
 {
     use HasFactory;
 
-     public function item(){
+    public function item(){
         return $this->belongsTo('App\Models\Item');
+    }
+
+    public function carpenter(){
+        return $this->belongsTo('App\Models\Carpenter');
+    }
+
+     public function status(){
+        return $this->hasOne('App\Models\Status');
     }
 }

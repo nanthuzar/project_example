@@ -18,21 +18,21 @@
 	                </div>
 	                <div class="card-body">
 	                    <div class="form-group row">
-	                        <label for="codeno" class="col-sm-2 col-form-label"> Carpenter Name </label>
+	                       <label for="codeno" class="col-sm-2 col-form-label"> Carpenter Name </label>
 	                       <select class="form-control select2" name="carpentername">
 	                            <option value="0"> Choose Name </option>
-	                            {{-- @foreach($carpenters as $carpenter)
+	                            @foreach($carpenters as $carpenter)
 	                                <option value="{{ $carpenter->id }}">{{ $carpenter->name }}</option>
-	                            @endforeach --}}
+	                            @endforeach
 	                        </select>
 	                    </div>
 	                    <div class="form-group row">
 	                        <label for="name" class="col-sm-2 col-form-label"> Item Name </label>
 	                        <select class="form-control select2" name="itemname">
 	                            <option value="0"> Choose Item </option>
-	                            {{-- @foreach($items as $item)
+	                            @foreach($items as $item)
 	                                <option value="{{ $item->id }}">{{ $item->name }}</option>
-	                            @endforeach --}}
+	                            @endforeach
 	                        </select>
 	                    </div>
 	                    <div class="form-group row">

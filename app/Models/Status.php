@@ -14,4 +14,8 @@ class Status extends Model
     public function carpenterorder(){
     	return $this->belongsTo('App\Models\CarpenterOrder');
     }
+
+    public function orderconfirm(){
+    	return $this->belongsTo('App\Models\OrderConfirm');
+    }
 }
