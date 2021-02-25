@@ -20,9 +20,10 @@ class OrderConfirmController extends Controller
     public function index()
     {
         //
+        $statuses = Status::all();
         $orderconfirms = Orderconfirm::all();
         $carpenterOrders = CarpenterOrder::all();
-        return view('backend.orderconfirm.list',compact('carpenterOrders','orderconfirms'));
+        return view('backend.orderconfirm.list',compact('carpenterOrders','orderconfirms','statuses'));
     }
 
     /**
@@ -34,8 +35,9 @@ class OrderConfirmController extends Controller
     {
         //
         $carpenters = Carpenter::all();
+        $statuses = Status::all();
         $items = Item::all();
-        return view('backend.orderconfirm.new',compact('carpenters','items'));
+        return view('backend.orderconfirm.new',compact('carpenters','items','statuses'));
     }
 
     /**
@@ -50,6 +52,7 @@ class OrderConfirmController extends Controller
         $itemname = $request->itemname;
         $qty = $request->qty;
         $confirmdate = $request->confirmdate;
+        $status = $request->status;
         $duedate = $request->duedate;
 
         $orderconfirm = new OrderConfirm();
@@ -57,6 +60,7 @@ class OrderConfirmController extends Controller
         $orderconfirm->item_id = $itemname;
         $orderconfirm->qty = $qty;
         $orderconfirm->confirm_date = $confirmdate;
+        $orderconfirm->status_id = $status;
         $orderconfirm->due_date = $duedate;
 
         $orderconfirm->save();
@@ -83,8 +87,11 @@ class OrderConfirmController extends Controller
      */
     public function edit($id)
     {
+        $carpenters =Carpenter::all();
+        $items = Item::all();
         $statuses = Status::all();
-        return view('backend.orderconfirm.edit',compact('statuses'));
+        $orderconfirm = OrderConfirm::find($id);
+        return view('backend.orderconfirm.edit',compact('statuses','carpenters','items','orderconfirm'));
     }
 
     /**
@@ -97,14 +104,25 @@ class OrderConfirmController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $carpentername = $request->carpentername;
+        $itemname = $request->itemname;
+        $qty = $request->qty;
+        $duedate = $request->duedate;        
         $confirmdate = $request->confirmdate;
         $status = $request->status;
 
         $orderconfirm = OrderConfirm::find($id);
+        $orderconfirm->carpenter_id = $carpentername;
+        $orderconfirm->item_id = $itemname;
+        $orderconfirm->qty = $qty;
+        $orderconfirm->due_date = $duedate;
         $orderconfirm->confirm_date = $confirmdate;
-        $orderconfirm->status = $status;
+
+        $orderconfirm->status_id = $status;
         
         $orderconfirm->save();
+
+
 
         return redirect()->route('orderconfirm.index')->with('successMsg','New Order is ADDED in your data.');
     }

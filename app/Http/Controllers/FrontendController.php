@@ -47,6 +47,22 @@ class FrontendController extends Controller
         // return view('frontend.detail', compact('items'));
     }
 
+    public function product(){
+
+        $items = Item::all();
+        return view('frontend.product',compact('items'));
+    }
+
+    public function contact(){
+
+        return view('frontend.contact');
+    }
+
+    public function about(){
+
+        return view('frontend.about');
+    }
+
     public function cart(){
 
         $shippings = Shipping::all();
@@ -75,6 +91,7 @@ class FrontendController extends Controller
         $order->status = $status;
         $order->deliveryaddress = $deliveryAddress;
         $order->shipping_id = $shippingId;
+        // $order->item_id= $itemId;
         $order->orderdate = $orderdate;
         $order->user_id = $userid;
         $order->save();
@@ -86,6 +103,10 @@ class FrontendController extends Controller
         return response()->json([
             'status' => 'Order Successfully created!'
         ]);
+    }
+
+    public function ordersuccess(){
+        return view('frontend.index');
     }
 
 

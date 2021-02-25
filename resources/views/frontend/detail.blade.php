@@ -40,17 +40,17 @@
                                     <p class="product-slug">Description: {{ $item->description }}</p>
                                     <hr>
 
-                                    <div class="col-sm-3 col-6 col-md-4 pl-0 pr-4 mb-4 mt-4">
+                                    {{-- <div class="col-sm-3 col-6 col-md-4 pl-0 pr-4 mb-4 mt-4" id="detailamount">
                                         <div class="input-group mt-2">
                                             <div class="input-group-append">
-                                                <button class="btn btn-secondary" type="button"><i class="fa fa-minus"></i></button>
+                                                <button class="btn btn-secondary dec" type="button"><i class="fa fa-minus"></i></button>
                                             </div>
-                                            <input type="text" size="3" class="form-control bg-light text-center" readonly value="1" maxlength="3">
+                                            <input type="text" size="3" class="form-control bg-light text-center" readonly value="" maxlength="3">
                                             <div class="input-group-append">
-                                                <button class="btn btn-secondary rounded-0" type="button"><i class="fa fa-plus"></i></button>
+                                                <button class="btn btn-secondary rounded-0 inc" type="button"><i class="fa fa-plus"></i></button>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                     <div>
                                         <button type="button" class="btn btn-theme rounded-0 mr-3 px-3 addtoCart" data-id="{{ $item->id }}" data-name="{{ $item->name }}" data-price="{{ $item->price }}" data-photo="{{ asset($item->photo) }}">

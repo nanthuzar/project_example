@@ -68,16 +68,16 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mt-2 mt-lg-0 mx-auto">
                 <li class="nav-item active px-4">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ route('frontend.index')}}">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item px-4">
-                    <a class="nav-link" href="#item">Items</a>
+                    <a class="nav-link" href="{{ route('frontend.product')}}">Items</a>
                 </li>
                 <li class="nav-item px-4">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="{{ route('frontend.about')}}">About</a>
                 </li>
                 <li class="nav-item px-4">
-                    <a class="nav-link" href="#contact">Contact</a>
+                    <a class="nav-link" href="{{ route('frontend.contact')}}">Contact</a>
                 </li>
             </ul>
         </div>
@@ -101,7 +101,7 @@
     </div>
     <!-- end of content -->
 
-    <!-- start of slideshow -->
+    {{-- <!-- start of slideshow -->
 
     <div class="container my-5">
       <h2 class="text-center">Our Partners</h2>
@@ -118,7 +118,7 @@
        </section>
     </div>
 
-    <!-- end of slideshow -->
+    <!-- end of slideshow --> --}}
 
     <!-- start of footer -->
     <div class="container my-4" id="contact">
@@ -173,6 +173,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
     <script type="text/javascript" src="{{ asset('plugin/cart.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('plugin/calculator.js') }}"></script>
 
     <script type="text/javascript">
         $(document).ready(function(){

@@ -44,7 +44,11 @@ Route::resource('/category',CategoryController::class)->middleware('auth');
 Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
 Route::get('detail/{id}', [FrontendController::class, 'detail'])->name('frontend.detail');
 Route::get('cart',[FrontendController::class, 'cart'])->name('frontend.cart');
+Route::get('product',[FrontendController::class, 'product'])->name('frontend.product');
+Route::get('contact',[FrontendController::class, 'contact'])->name('frontend.contact');
+Route::get('about',[FrontendController::class, 'about'])->name('frontend.about');
 Route::post('/storeorder',[FrontendController::class, 'storeorder'])->name('/storeorder');
+Route::get('ordersuccess',[FrontendController::class, 'ordersuccess'])->name('frontend.index');
 
 Route::get('login',[AuthController::class, 'loginform'])->name('login');
 Route::post('login',[AuthController::class, 'login']);

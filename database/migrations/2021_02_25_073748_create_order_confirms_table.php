@@ -18,9 +18,9 @@ class CreateOrderconfirmsTable extends Migration
             $table->foreignId('carpenter_id')->references('id')->on('carpenters')->onDelete('cascade');
             $table->foreignId('item_id')->references('id')->on('items')->onDelete('cascade');
             $table->string('qty');
-            $table->date('due_date');
-            $table->date('confirm_date');
-            $table->integer('status')->nullable()->default(null);
+            $table->date('due_date')->nullable()->default(null);
+            $table->date('confirm_date')->nullable()->default(null);
+            $table->foreignId('status_id')->references('id')->on('statuses')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -31,7 +31,7 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <title>Sleek Admin</title>
+    <title>Shwe Tha Mae Pin</title>
   </head>
   <body>
     
@@ -210,7 +210,7 @@
                     <!--Sidebar Navigation Menu-->
                     <div class="sidebar-menu-container">
                         <ul class="sidebar-menu mt-4 mb-4">
-                             <li class="parent">
+                            {{-- <li class="parent">
                                 <a href="widgets.html" class=""><i class="fa fa-puzzle-piece mr-3"></i>
                                     <span class="none">Dashboard </span>
                                 </a>
@@ -219,7 +219,7 @@
                                 <a href="widgets.html" class=""><i class="fas fa-chart-line mr-3"></i> 
                                     <span class="none"> Daily Report </span>
                                 </a>
-                            </li>
+                            </li> --}}
                             <li class="parent">
                                 <a href="{{ route('carpenter.index') }}" class=""><i class="fas fa-hammer mr-3"></i>
                                     <span class="none">Carpenters </span>
@@ -243,6 +243,7 @@
                                 <ul class="children" id="ecommerce">
                                     <li class="child"><a href="" class="ml-4"><i class="fa fa-angle-right mr-2"></i> Order List</a></li>
                                     <li class="child"><a href="{{ route('carpenterorder.index')}}" class="ml-4"><i class="fa fa-angle-right mr-2"></i> Carpenters Order</a></li>
+                                    <li class="child"><a href="{{ route('orderconfirm.index')}}" class="ml-4"><i class="fa fa-angle-right mr-2"></i> Order Confirm</a></li>
                                     <li class="child"><a href="invoice.html" class="ml-4"><i class="fa fa-angle-right mr-2"></i> Invoice</a></li>
                                 </ul>
                             </li>

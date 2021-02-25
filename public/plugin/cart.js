@@ -1,7 +1,8 @@
 $(document).ready(function(){
 		
 	cartNoti();
-	showTable();	
+	showTable();
+	// showamount();	
 
 	$('.addtoCart').on('click', function(){
 		var id = $(this).data('id');
@@ -153,12 +154,11 @@ $(document).ready(function(){
 		localStorage.setItem('cart',cartData);
 		showTable();
 		cartNoti();	
-		});
+	});
 	
 
 	
-	$('#cartDiv').on('click','.dec', function()
-	{
+	$('#cartDiv').on('click','.dec', function(){
 		var id = $(this).data('id');
 
 		var cart=localStorage.getItem("cart");
@@ -204,6 +204,7 @@ $(document).ready(function(){
 
 	$('.checkoutBtn').on('click', function(){
 		var cart = localStorage.getItem('cart');
+		//console.log(cart);
 
 		var cartArray = JSON.parse(cart);
 
@@ -232,11 +233,117 @@ $(document).ready(function(){
 	    $.post('/storeorder',{
 	    	carts:cart, deliveryAddress:deliveryAddress, shippingId:shippingId,
 	    	totalItem:totalItem, totalAmount:totalAmount}
+	    	
 	    	,function(response){
 	    	//localstorage clear
 	    	localStorage.clear();
 	    	location.href="ordersuccess";
 	    })
-	})
+	});
+
+	/*$('#detailamount').on('click','.inc', function(){
+		var id = $(this).data('id');
+
+		var cart=localStorage.getItem("cart");
+		var cartArray = JSON.parse(cart);
+
+		$.each(cartArray, function(i,v)
+		{
+			if(i == id)
+			{
+				v.qty++;
+			}
+		})
+		
+		var cartData = JSON.stringify(cartArray);
+		localStorage.setItem('cart',cartData);
+		showTable();
+		cartNoti();	
+	});	
+
+	
+	$('#detailamount').on('click','.dec', function(){
+		var id = $(this).data('id');
+
+		var cart=localStorage.getItem("cart");
+		var cartArray = JSON.parse(cart);
+		
+		$.each(cartArray,function (i,v) 
+		{
+			if (i == id) 
+			{
+				v.qty--;
+				if (v.qty == 0) 
+				{
+					cartArray.splice(id,1);
+				}
+			}
+		})
+		
+		var cartData = JSON.stringify(cartArray);
+		localStorage.setItem('cart',cartData);
+		//showTable();
+		cartNoti();
+	});*/
+
+	// function showamount(){
+	// 	var cart = localStorage.getItem('cart');
+
+	// 	if(cart){
+	// 		$('#detailamount').show();
+
+	// 		var cartArray = JSON.parse(cart);
+	// 		var shoppingcartData = '';
+
+	// 		if (cartArray.length > 0) {
+	// 			var total = 0;
+	// 			$.each(cartArray, function(i,v){
+	// 				var id = v.id;
+	// 				var name = v.name;
+	// 				var price = v.price;
+	// 				var photo = v.photo;
+	// 				var qty = v.qty;
+
+	// 				// var str_unitprice = CommaFormatted(price.toString());
+
+	// 				var subtotal = price * qty;
+	// 				// var str_subtotal = CommaFormatted(subtotal.toString());
+
+	// 				shoppingcartData +=	`<div class="row card-item">
+	// 					<div class="col-md-4">
+	// 						<img src="${photo}" class="img-fluid">
+	// 					</div>
+	// 					<div class="col-md-3">
+	// 						<div class="card-body">
+	// 							<h5 class="card-title">${name}</h5>
+	// 							<p class="card-text">${price}</p>
+	// 						</div>
+	// 					</div>
+	// 					<div class="input-group mt-2">
+ //                                            <div class="input-group-append">
+ //                                                <button class="btn btn-secondary dec" type="button"><i class="fa fa-minus"></i></button>
+ //                                            </div>
+ //                                            <input type="text" size="3" class="form-control bg-light text-center" readonly value="${qty}" maxlength="3">
+ //                                            <div class="input-group-append">
+ //                                                <button class="btn btn-secondary rounded-0 inc" type="button"><i class="fa fa-plus"></i></button>
+ //                                            </div>
+ //                                        </div>
+ //                        <div class="col-md-1 mt-5">
+	// 			  			<a href="javascript:void(0)" class="fs-3 text-danger ml-5 remove_btn" data-id="${i}">
+	// 			  				<i class="fas fa-trash fa-2x"></i></i>
+	// 			  			</a>
+	// 			  		</div>
+	// 				</div>
+	// 				<hr>`;
+
+	// 				total += subtotal ++;			
+	// 			});
+	// 			// console.log(total);
+
+	// 			$('#detailamount').html(shoppingcartData);
+
+	// 		}
+	// 	}
+	// }
 
 });

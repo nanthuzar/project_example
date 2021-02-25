@@ -45,7 +45,9 @@
                                 <td>{{ $orderconfirm->qty}}</td>
                                 <td>{{ $orderconfirm->confirm_date}}</td>
                                 <td>{{ $orderconfirm->due_date}}</td>
-                                <td></td>
+                                
+                                <td>{{ $orderconfirm->status->name }}</td>
+                                
                              
                                 <td>
 	                                <a href="{{ route('orderconfirm.edit',$orderconfirm->id)}}" class="btn btn-link text-theme p-1"><i class="fa fa-pencil"></i></a>

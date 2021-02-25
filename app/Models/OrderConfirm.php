@@ -18,6 +18,6 @@ class OrderConfirm extends Model
     }
 
      public function status(){
-        return $this->hasOne('App\Models\Status');
+        return $this->belongsTo('App\Models\Status');
     }
 }

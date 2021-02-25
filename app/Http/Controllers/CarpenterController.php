@@ -53,6 +53,7 @@ class CarpenterController extends Controller
         $name = $request->name;
         $phone = $request->phone;
         $itemsid=$request->itemsid;
+        
         $carpenter = new Carpenter();
         $carpenter->name=$name;
         $carpenter->phone=$phone;

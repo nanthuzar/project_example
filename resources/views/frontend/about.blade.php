@@ -1,23 +1,23 @@
 <x-frontend>
-
-	<!-- carousel -->
+      <!-- carousel -->
       <div class="carousel slide carousel-fade" data-bs-ride="carousel" id="Carousel">
          <div class="carousel-inner">
             <div class="carousel-item active">
-               <img src="h1.jpg" class="img-fluid w-100">
-               <div class="carousel_text ">
-                  <h4 class="fonts">Welcome To Our Shop</h4>
-                  <h1 class="fonts">Shwe Tha Myae Pin</h1>
-                  <p class="my-4">A good varity of wooden door and window can be fond in our shop.</p>
-                  <button class="btn btn-outline-primary">Shop Now</button>
+               <img src="dshowr.jpg" class="img-fluid w-100">
+               <div class="carousel_text">
+                  <!-- <h1 class="fonts display-4">About Us</h1> -->
                </div>
             </div>
             <div class="carousel-item">
-               <img src="door111.jpg" class="img-fluid w-100">
-               <div class="carousel_text d-none d-md-block">
-                  <h1 class="fonts">Customized size can also order.</h1>
-                  <p class="mt-5">For your sweet home decoration...</p>
-                  <button class="btn btn-outline-primary mt-2">Shop Now</button>
+               <img src="door113.jpg" class="img-fluid w-100">
+               <div class="carousel_text">
+                  <!-- <h1 class="fonts display-4">About Us</h1> -->
+               </div>
+            </div>
+            <div class="carousel-item">
+               <img src="wsr1.jpg" class="img-fluid w-100">
+               <div class="carousel_text">
+                  <!-- <h1 class="fonts display-4">About Us</h1> -->
                </div>
             </div>
          </div>
@@ -29,65 +29,39 @@
          </a>
       </div>
       <!-- end carousel -->
-
-      <!-- item start-->
-      <div class="container my-3">
-         <h1 class="text-center">Our Items</h1>
-         <div class="col col-6 col-md-4 col-lg-3 my-2">
-         	
-         </div>
-      </div>
-      <!-- item end -->
-
-
-      <!-- project start -->
-      {{-- <div class="container" id="project">
-         <h1 class="text-center">Our Projects</h1>
+      <div class="container my-5">
+         <h1 class="text-center">Our Story</h1>
          <div class="row">
-            <div class="col col-6 col-md-4 col-lg-3 my-2">
-               <img src="w1.jpg" class="img-fluid">
+            <div class="col col-12 col-lg-6">
+               <img src="client1.jpg" class="rounded-circle img-fluid">
             </div>
-            <div class="col col-6 col-md-4 col-lg-3  my-2">
-               <img src="w2.jpg" class="img-fluid">
+            <div class="col col-12col-lg-6">
+               <p>Shwe Thamae Pin was founded in 1990 by U Hla Thaung and Daw Than Myint. With more than thirty years of experience, Shwe Thamae Pin provided an extensive range of performance details for our bamboo, windows and doors.</p>
             </div>
-            <div class="col col-6 col-md-4 col-lg-3 my-2">
-               <img src="w3.jpg" class="img-fluid">
-            </div>
-            <div class="col col-6 col-md-4 col-lg-3 my-2">
-               <img src="w4.jpg" class="img-fluid">
-            </div>
-            <div class="col col-6 col-md-4 col-lg-3 my-2">
-               <img src="w5.jpg" class="img-fluid">
-            </div>
-            <div class="col col-6 col-md-4 col-lg-3 my-2">
-               <img src="w6.jpg" class="img-fluid">
-            </div>
-            <div class="col col-6 col-md-4 col-lg-3 my-2">
-               <img src="w7.jpg" class="img-fluid">
-            </div>
-            <div class="col col-6 col-md-4 col-lg-3 my-2">
-               <img src="w9.jpg" class="img-fluid">
-            </div>
-            <div class="col col-6 col-md-4 col-lg-3 my-2">
-               <img src="w10.jpg" class="img-fluid">
-            </div>
-            <div class="col col-6 col-md-4 col-lg-3 my-2">
-               <img src="w4.jpg" class="img-fluid">
-            </div>
-            <div class="col col-6 col-md-4 col-lg-3 my-2">
-               <img src="w5.jpg" class="img-fluid">
-            </div>
-            <div class="col col-6 col-md-4 col-lg-3 my-2">
-               <img src="w12.jpg" class="img-fluid">
-            </div>
+         </div>        
+      </div>
 
-         </div>
-      </div> --}}
+
+
+
+      <div class="container my-5">
+         <h1 class="text-center">Our Mission</h1>
+         <p>We offer an extensive range of performance details for our bamboo, windows and doors. They are tested to our standard sections or we can offer bespoke to match your specific requirements. We aim to provide a service to both building professionals and private individuals, with personalised details to suit a home owner.</p>
+         <p>All our products are made-to-order so if the standard options do not meet your requirements please let us know what you require. We provide quality windows and doors designed to meet your requirements.</p>
+      </div>
+      <div class="container my-5">
+         <h1 class="text-center">Our Services</h1>
+         <ul>
+            <li>We pride ourselves on offering a friendly personal service and an exceptional product at the most competitive prices on the market.</li>
+            <li> We guarantee quality workmanship and complete satisfaction with every project we undertake.</li>
+            <li>We will professionally measure all your requirements, recommending suitable materials ensuring the end result is what you deserve and want.</li>
+         </ul>
+      </div>
       <!-- carousel -->
       <div style="  background-image: linear-gradient(180deg, #fafafa,#dddddd);">
          <div class="container">
             <div class="carousel slide py-5 mt-5" data-bs-ride="carousel" id="Carousel1">
-               <h2 class="text-center">What Our Clients Say!</h2>
+               <h2 class="text-center">Testimonials</h2>
                <hr class="divided mb-5">
                <div class="carousel-inner">
                   <div class="carousel-item active">
@@ -128,7 +102,7 @@
                            <img src="client4.png" style="width: 180px; height:180px;" class="rounded-circle">
                         </div>
                         <div class="user_text">
-                           <p class="mt-5">Excellent client manager. He is always accurate, all promises are fulfilled, all questions get answers, the company presents very attentive and positive approach.</p>
+                           <p class="mt-5">Just a quick note to thank for all your effort and sound advice. I am so pleased I used Shwe Thamae Pin, it is good to see there are still traditional tradesman about! Excellent client manager. He is always accurate, all promises are fulfilled, all questions get answers, the company presents very attentive and positive approach.</p>
                         </div>
                         <div class="user_name">
                            Robert
@@ -152,7 +126,7 @@
       </div>
       <!-- end carousel -->
 
-	<!-- start of slideshow -->
+      <!-- start of slideshow -->
 
     <div class="container my-5">
       <h2 class="text-center">Our Partners</h2>
@@ -170,4 +144,6 @@
     </div>
 
     <!-- end of slideshow -->
+
+
 </x-frontend>

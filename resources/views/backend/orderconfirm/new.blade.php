@@ -48,6 +48,15 @@
 	                        </div>
 	                    </div>
 	                    <div class="form-group row">
+	                        <label for="description" class="col-sm-2 col-form-label"> Status </label>
+	                        <select class="form-control select2" name="status">
+	                            <option value="0"> Choose Status </option>
+	                             @foreach($statuses as $status)
+	                                <option value="{{ $status->id }}">{{ $status->name }}</option>
+	                            @endforeach
+	                        </select>
+	                    </div>
+	                    <div class="form-group row">
 	                        <label for="description" class="col-sm-2 col-form-label"> Due Date </label>
 	                        <div class="col-sm-10">
 	                            <input type="date" class="form-control"  id="duedate" name="duedate" placeholder="Enter Deadline">

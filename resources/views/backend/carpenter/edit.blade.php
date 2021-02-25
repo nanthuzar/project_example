@@ -15,11 +15,13 @@
                                 
                             </div>
                         </div>
-                        
+
+                        {{-- @foreach($carpenters as $carpenter) --}}
                         <form action="{{ route('carpenter.update', $carpenter->id) }}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="card-body">
+                                
                                 <div class="form-group row">
                                     <label for="name_id" class="col-sm-2 col-form-label"> Name </label>
                                         <div class="col-sm-10">
@@ -51,12 +53,14 @@
                                             </select>
                                         </div>
                                 </div> --}}
+                                
                             </div>
                             <div class="card-action">
                                 <button type="submit" class="btn btn-primary"> <i class="icofont-save"></i> Update </button>
                                 <button type="reset" class="btn btn-outline-secondary"> <i class="icofont-close"></i> </i> Cancel </button>
                             </div>
                         </form>
+                        {{-- @endforeach --}}
                     </div>
                     <!--/Product Listing-->
                 </div>
