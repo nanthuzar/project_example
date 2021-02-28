@@ -249,7 +249,7 @@
                                 <ul class="children" id="ecommerce">
                                     <li class="child"><a href="{{ route('orderlist.index')}}" class="ml-4"><i class="fa fa-angle-right mr-2"></i> Order List</a></li>
                                     <li class="child"><a href="{{ route('carpenterorder.index')}}" class="ml-4"><i class="fa fa-angle-right mr-2"></i> Carpenters Order</a></li>
-                                    <li class="child"><a href="invoice.html" class="ml-4"><i class="fa fa-angle-right mr-2"></i> Invoice</a></li>
+                                    <li class="child"><a href="{{ url('/dynamic_pdf/') }}" class="ml-4"><i class="fa fa-angle-right mr-2"></i> Invoice</a></li>
                                     <li class="child"><a href="{{ route('orderconfirm.index')}}" class="ml-4"><i class="fa fa-angle-right mr-2"></i> Order Confirm</a></li>
                                     @else
                                     <li class="child"><a href="{{ route('orderconfirm.index')}}" class="ml-4"><i class="fa fa-angle-right mr-2"></i> Order Confirm</a></li>
