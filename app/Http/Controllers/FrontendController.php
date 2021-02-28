@@ -22,9 +22,14 @@ class FrontendController extends Controller
     public function index()
     {
         //
+        $popularitems = Item::take(4)->get();
+        $randomitems = Item::inRandomOrder()->take(4)->get();
+        $newitems = Item::latest()->limit(4)->get();
+
         $categories = Category::all();
         $items = Item::all();
-        return view('frontend.index',compact('categories','items'));
+
+        return view('frontend.index',compact('popularitems','randomitems','newitems','categories','items'));
     }
 
     /**
@@ -106,7 +111,7 @@ class FrontendController extends Controller
     }
 
     public function ordersuccess(){
-        return view('frontend.index');
+        return view('frontend.ordersuccess');
     }
 
 

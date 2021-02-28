@@ -9,9 +9,15 @@ use App\Models\OrderConfirm;
 use App\Models\Carpenter;
 use App\Models\Item;
 use App\Models\Status;
+use App\Models\User;
+
+use Spatie\Permission\Models\Role;
 
 class OrderConfirmController extends Controller
 {
+    public function __construct(){
+        $this->middleware(['role:carpenter|admin']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -20,10 +26,11 @@ class OrderConfirmController extends Controller
     public function index()
     {
         //
+        $users = User::all();
         $statuses = Status::all();
         $orderconfirms = Orderconfirm::all();
         $carpenterOrders = CarpenterOrder::all();
-        return view('backend.orderconfirm.list',compact('carpenterOrders','orderconfirms','statuses'));
+        return view('backend.orderconfirm.list',compact('carpenterOrders','orderconfirms','statuses','users'));
     }
 
     /**

@@ -41,7 +41,7 @@ class AuthController extends Controller
 	                return redirect('/');
 	            }
 	        }elseif($role[0] == 'carpenter'){
-    			return redirect('carpenterorder');
+    			return redirect('orderconfirm');
     		}
     		else{
     			return redirect('item');

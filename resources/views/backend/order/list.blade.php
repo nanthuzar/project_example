@@ -9,9 +9,7 @@
                 <div class="row border-bottom mb-4">
                     <div class="col-sm-8 pt-2"><h6 class="mb-4 bc-header">Product listing</h6></div>
                     <div class="col-sm-4 text-right pb-3">
-                        @if(Auth::user()->name == 'admin')
-                        <a class="btn btn-round btn-theme ms-auto" href="{{route('orderconfirm.create')}}"><i class="fa fa-plus"></i> Add Order</a>
-                        @endif
+                        {{-- <a class="btn btn-round btn-theme ms-auto" href="{{route('orderconfirm.create')}}"><i class="fa fa-plus"></i> Add Order</a> --}}
                     </div>
                 </div>
                 
@@ -27,32 +25,35 @@
                         <thead>
                             <tr>	                    
 	                            <th>#</th>
-	                            <th>Carpenter Name</th>
-	                            <th>Item name</th>
-	                            <th>Quantity</th>
-	                            <th>Confirm Date</th>
-	                            <th>Due Date</th>
-	                            <th>Status</th>
+	                            <th>Voucher No.</th>
+	                            <th>Total Amount</th>
+	                            <th>Total Item</th>
+	                            <th>Order Date</th>
+	                            <th>Delivery Address</th>
+	                           {{--  <th>Status</th> --}}
+	                            <th>Township</th>
+	                            <th>Customer Name</th>
 	                            <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @php $i = 1; @endphp
-                            @foreach($orderconfirms as $orderconfirm)
+                            @foreach($orders as $order)
                                 
                             <tr>
                                 <td>{{ $i++ }}</td>
-                                <td>{{ $orderconfirm->carpenter->name }}</td>
-                                <td>{{ $orderconfirm->item->name }}</td>
-                                <td>{{ $orderconfirm->qty}}</td>
-                                <td>{{ $orderconfirm->confirm_date}}</td>
-                                <td>{{ $orderconfirm->due_date}}</td>
-                                
-                                <td>{{ $orderconfirm->status->name }}</td>
+                                <td>{{ $order->voucherno}}</td>
+                                <td>{{ $order->totalamount}}</td>
+                                <td>{{ $order->totalitem}}</td>
+                                <td>{{ $order->orderdate }}</td>
+                                <td>{{ $order->deliveryaddress }}</td>
+                                <td>{{ $order->shipping->township->name}}</td>
+                                <td>{{ $order->user->name}}</td>
+                            
                                 
                              
                                 <td>
-	                                <a href="{{ route('orderconfirm.edit',$orderconfirm->id)}}" class="btn btn-link text-theme p-1"><i class="fa fa-pencil"></i></a>
+	                                <a href="" class="btn btn-link text-theme p-1"><i class="fas fa-list-alt"></i></a>
 	                                {{-- <form class="d-inline-block" action="" method="POST" onsubmit="return confirm('Are you sure want to delete?')">
 	                                   @csrf
 	                                   @method('DELETE')

@@ -32,10 +32,73 @@
 
       <!-- item start-->
       <div class="container my-3">
-         <h1 class="text-center">Our Items</h1>
-         <div class="col col-6 col-md-4 col-lg-3 my-2">
-         	
+      	<h4 class="text-center my-5">Newest Items</h4>
+         <div class="row">
+	         @foreach($newitems as $newitem)
+	         <div class="col col-6 col-md-4 col-lg-3 my-2">
+	         
+		        <div class="card h-100">
+	                <img class="card-img-top" src="{{ $newitem->photo }}" width="100%" height="300px" alt="Card image cap">
+	                
+	                <div class="card-body">
+	                    <h5 class="card-title">{{ $newitem->name}}</h5>
+	                    <p class="card-text">{{ $newitem->description}}</p>
+	                </div>
+	                <div class="card-footer">
+	                    <ul class="list-inline text-center">
+	                        <li class="list-inline-item"><a class="btn btn-warning" href="{{ route('frontend.detail', $newitem->id) }}"><i class="fas fa-eye"></i></a></li>
+	                        <li class="list-inline-item"><a class="btn btn-success addtoCart" data-id="{{ $newitem->id }}" data-name="{{ $newitem->name }}" data-price="{{ $newitem->price }}" data-photo="{{ asset($newitem->photo) }}" href=""><i class="fas fa-cart-arrow-down"></i></a></li>
+	                    </ul>                                    
+	                </div>
+	            </div> 
+	         </div>
+	         @endforeach
          </div>
+         <h4 class="text-center my-5">Popular Items</h4>
+         <div class="row">
+         @foreach($popularitems as $popularitem)
+         <div class="col col-6 col-md-4 col-lg-3 my-2">
+         
+	        <div class="card h-100">
+                <img class="card-img-top" src="{{ $popularitem->photo }}" width="100%" height="300px" alt="Card image cap">
+                
+                <div class="card-body">
+                    <h5 class="card-title">{{ $popularitem->name}}</h5>
+                    <p class="card-text">{{ $popularitem->description}}</p>
+                </div>
+                <div class="card-footer">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item"><a class="btn btn-warning" href="{{ route('frontend.detail', $popularitem->id) }}"><i class="fas fa-eye"></i></a></li>
+                        <li class="list-inline-item"><a class="btn btn-success addtoCart" data-id="{{ $popularitem->id }}" data-name="{{ $popularitem->name }}" data-price="{{ $popularitem->price }}" data-photo="{{ asset($popularitem->photo) }}" href=""><i class="fas fa-cart-arrow-down"></i></a></li>
+                    </ul>                                    
+                </div>
+            </div>
+            
+         </div>
+         @endforeach
+         </div>
+         <h4 class="text-center my-5">Random Items</h4>
+         <div class="row">
+	         @foreach($randomitems as $randomitem)
+	         <div class="col col-6 col-md-4 col-lg-3 my-2">
+	         
+		        <div class="card h-100">
+	                <img class="card-img-top" src="{{ $randomitem->photo }}" width="100%" height="300px" alt="Card image cap">
+	                
+	                <div class="card-body">
+	                    <h5 class="card-title">{{ $randomitem->name}}</h5>
+	                    <p class="card-text">{{ $randomitem->description}}</p>
+	                </div>
+	                <div class="card-footer">
+	                    <ul class="list-inline text-center">
+	                        <li class="list-inline-item"><a class="btn btn-warning" href="{{ route('frontend.detail', $randomitem->id) }}"><i class="fas fa-eye"></i></a></li>
+	                        <li class="list-inline-item"><a class="btn btn-success addtoCart" data-id="{{ $randomitem->id }}" data-name="{{ $randomitem->name }}" data-price="{{ $randomitem->price }}" data-photo="{{ asset($randomitem->photo) }}" href=""><i class="fas fa-cart-arrow-down"></i></a></li>
+	                    </ul>                                    
+	                </div>
+	            </div> 
+	         </div>
+	         @endforeach
+         </div>         
       </div>
       <!-- item end -->
 

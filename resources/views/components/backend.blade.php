@@ -173,7 +173,7 @@
                         </div>
                         <div class="mr-4">
                             <a class="" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="assets/img/profile.jpg" alt="Adam" class="rounded-circle" width="40px" height="40px">
+                                <p>{{ Auth::user()->name }}</p>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right mt-13" aria-labelledby="dropdownMenuLink">
                                 <a class="dropdown-item" href="#"><i class="fa fa-user pr-2"></i> Profile</a>
@@ -182,7 +182,10 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#"><i class="fa fa-book pr-2"></i> Projects</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"><i class="fa fa-power-off pr-2"></i> Logout</a>
+                                <a class="dropdown-item" href="javascript:void(0)" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-power-off pr-2"></i> Logout</a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                            </form>
                             </div>
                         </div>
                     </div>
@@ -197,8 +200,10 @@
 
         <div class="row main-content">
             <!--Sidebar left-->
+            
             <div class="col-sm-3 col-xs-6 sidebar pl-0">
                 <div class="inner-sidebar mr-3">
+                    
                     <!--Image Avatar-->
                     <div class="avatar text-center">
                         <img src="assets/img/client-img4.png" alt="" class="rounded-circle" />
@@ -210,6 +215,7 @@
                     <!--Sidebar Navigation Menu-->
                     <div class="sidebar-menu-container">
                         <ul class="sidebar-menu mt-4 mb-4">
+                            @if(Auth::user()->name == 'admin')
                             {{-- <li class="parent">
                                 <a href="widgets.html" class=""><i class="fa fa-puzzle-piece mr-3"></i>
                                     <span class="none">Dashboard </span>
@@ -241,17 +247,22 @@
                                     <span class="none">Order <i class="fa fa-angle-down pull-right align-bottom"></i></span>
                                 </a>
                                 <ul class="children" id="ecommerce">
-                                    <li class="child"><a href="" class="ml-4"><i class="fa fa-angle-right mr-2"></i> Order List</a></li>
+                                    <li class="child"><a href="{{ route('orderlist.index')}}" class="ml-4"><i class="fa fa-angle-right mr-2"></i> Order List</a></li>
                                     <li class="child"><a href="{{ route('carpenterorder.index')}}" class="ml-4"><i class="fa fa-angle-right mr-2"></i> Carpenters Order</a></li>
-                                    <li class="child"><a href="{{ route('orderconfirm.index')}}" class="ml-4"><i class="fa fa-angle-right mr-2"></i> Order Confirm</a></li>
                                     <li class="child"><a href="invoice.html" class="ml-4"><i class="fa fa-angle-right mr-2"></i> Invoice</a></li>
+                                    <li class="child"><a href="{{ route('orderconfirm.index')}}" class="ml-4"><i class="fa fa-angle-right mr-2"></i> Order Confirm</a></li>
+                                    @else
+                                    <li class="child"><a href="{{ route('orderconfirm.index')}}" class="ml-4"><i class="fa fa-angle-right mr-2"></i> Order Confirm</a></li>
                                 </ul>
                             </li>
+                            @endif
                         </ul>
                     </div>
                     <!--Sidebar Naigation Menu-->
+                 
                 </div>
             </div>
+            
             <!--Sidebar left-->
             <div class="col-sm-9 col-xs-12 main-panel pt-3 pl-0">
                 {{ $slot }}

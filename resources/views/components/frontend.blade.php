@@ -118,7 +118,7 @@
        </section>
     </div>
 
-    <!-- end of slideshow --> --}}
+    <! end of slideshow> --}}
 
     <!-- start of footer -->
     <div class="container my-4" id="contact">

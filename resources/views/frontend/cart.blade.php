@@ -38,7 +38,8 @@
 					  	</div>
 					  	<div class="p-2 bd-highlight order-xl-2 order-lg-2 order-md-2 order-sm-1 order-1 justify-content-center">
 					  		<span class="fs-6 pe-5 text-uppercase"> Subtotal : </span>
-					  		<span class="fs-4 persianred_color fw-bold totality"> </span>
+					  		<span class="fs-4 persianred_color fw-bold totality"> </span><br>
+					  		
 					  	</div>
 					  	<div class="p-2 bd-highlight order-xl-3 order-lg-3 order-md-3 order-sm-3 order-3 justify-content-center">
 					  		

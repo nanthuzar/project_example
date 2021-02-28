@@ -12,7 +12,7 @@ use Spatie\Permission\Models\Role;
 class CarpenterOrderController extends Controller
 {
     public function __construct(){
-        $this->middleware(['role:carpenter|admin']);
+        $this->middleware(['role:admin']);
     }
 
     /**

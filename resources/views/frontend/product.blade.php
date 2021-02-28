@@ -8,10 +8,10 @@
         <div class="row my-3">
             {{-- @for($i=0; $i<2; $i++)  --}}
             @foreach($data[0] as $item)
-            <div class="col-md-2">
+            <div class="col-md-3 my-2">
                 
                     <div class="card h-100">
-                        <img class="card-img-top w-100" src="{{ $item->photo }}" alt="Card image cap">
+                        <img class="card-img-top w-100" height="300px" src="{{ $item->photo }}" alt="Card image cap">
                         
                         <div class="card-body">
                             <h5 class="card-title">{{ $item->name}}</h5>
@@ -21,7 +21,9 @@
                             <ul class="list-inline text-center">
                                 <li class="list-inline-item"><a class="btn btn-warning" href="{{ route('frontend.detail', $item->id) }}"><i class="fas fa-eye"></i></a></li>
                                 <li class="list-inline-item"><a class="btn btn-success addtoCart" data-id="{{ $item->id }}" data-name="{{ $item->name }}" data-price="{{ $item->price }}" data-photo="{{ asset($item->photo) }}" href=""><i class="fas fa-cart-arrow-down"></i></a></li>
-
+                                {{-- @if($item->category_id == 2)
+                                <li class="list-inline-item"><a class="btn btn-primary" href=""><i class="fas fa-calculator"></i></a></li>
+                                @endif --}}
 
 
                             </ul>                                    
