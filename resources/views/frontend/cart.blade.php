@@ -1,21 +1,21 @@
 <x-frontend>
 
-	<h3>Shopping Cart</h3>
+	<h3 class="px-5">Shopping Cart</h3>
 
 	<section id="blog" class="blog">
 		<div class="container mt-5">
-			<div class="row mb-5 justify-content-center">
-				<div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12 shoppingcart_div">
+			<div class="row pb-5 justify-content-center">
+				<div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12 shoppingcart_div px-3">
 					<div id="cartDiv"></div>
 
 					<div class="row justify-content-end mt-4">
 				  		<div class="col-md-2">
 					  		<p> Cash on Delivery  </p>
 					  	</div>
-					  	<div class=" offset-md-2 col-md-3 text-end">
+					  	<div class="form-group col offset-md-1 col-12 col-md-4 mb-3">
 					  		<div class="form-floating">
 					  			<label for="floatingSelect"> Fill Your Township </label>
-							  	<select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+							  	<select class="form-control col-12 col-lg-10" id="floatingSelect" aria-label="Floating label select example">
 							  		@foreach($shippings as $shipping)
 							    		<option value="{{ $shipping->id }}"> {{ $shipping->township->name }} ( {{ number_format($shipping->fee) }} ) Ks </option>
 							    	@endforeach
@@ -25,9 +25,10 @@
 					  	<div class="offset-md-1 col-md-4 justify-content-end">
 				  			<div class="form-floating">
 				  				<label for="floatingTextarea2"> Delivery Address</label>
-							  	<textarea class="form-control" placeholder="" id="floatingTextarea2"  style="height: 70px">							  		
-							  	</textarea>							  	
-							</div>	
+							  	<textarea class="form-control" placeholder="" id="floatingTextarea2"  style="height: 70px">
+							  		
+							  	</textarea>	
+							  </div>	
 					  	</div>
 					  	<hr class="my-3">
 					</div>
@@ -47,7 +48,9 @@
 					  			{{ session()->put('cartUrl','cart')}}
 					  			<a href="{{ route('login') }}" class="order d-block text-center btn btn-success"> Order Confirm </a>
 					  		@else
+					  			{{-- @foreach($orderdetails as $orderdetail) --}}
 					  			<a href="javascript:void(0)" class="order d-block text-center checkoutBtn btn btn-success"> Order Confirm </a>
+					  			{{-- @endforeach --}}
 					  		@endif
 					  	</div>
 					</div>

@@ -17,7 +17,7 @@ class Shipping extends Model
     	return $this->belongsTo('App\Models\Township');
     }
 
-    public function order(){
+    public function orderdetail(){
     	return $this->hasOne('App\Models\Order');
     }
 }

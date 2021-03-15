@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddQtyToItemOrderTable extends Migration
+class AddQtyToItemOrderDetailTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddQtyToItemOrderTable extends Migration
      */
     public function up()
     {
-        Schema::table('item_order', function (Blueprint $table) {
-            $table->string('qty')->after('order_id');
+        Schema::table('item_order_detail', function (Blueprint $table) {
+            $table->string('qty')->after('id');
         });
     }
 
@@ -25,7 +25,7 @@ class AddQtyToItemOrderTable extends Migration
      */
     public function down()
     {
-        Schema::table('item_order', function (Blueprint $table) {
+        Schema::table('item_order_detail', function (Blueprint $table) {
             //
         });
     }

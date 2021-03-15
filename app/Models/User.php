@@ -63,7 +63,7 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function orders(){
+    public function orderdetails(){
         return $this->hasMany('App\Models\Order');
     }
 }

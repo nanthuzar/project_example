@@ -13,7 +13,7 @@ class Carpenter extends Model
 
     protected $fillable = ['name', 'phone', 'item_id'];
 
-    public function orders(){
+    public function orderdetails(){
     	return $this->hasMany('App\Models\Order');
     }
 

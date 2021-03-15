@@ -75,9 +75,11 @@ class AuthController extends Controller
             'phone' => $input['phone'],
             'address' => $input['address'],
         ]);
+
         $user->assignRole('customer');
 
         $credentials = $input->only('email', 'password');
+
         Auth::attempt($credentials);
 
         return redirect('/');

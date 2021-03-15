@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Item;
 use App\Models\Shipping;
 use App\Models\Order;
+use App\Models\OrderDetail;
 
 use Carbon\Carbon;
 use Auth;
@@ -71,16 +72,19 @@ class FrontendController extends Controller
     public function cart(){
 
         $shippings = Shipping::all();
-        return view('frontend.cart',compact('shippings'));
+        $orderdetails = OrderDetail::all();
+        
+        return view('frontend.cart',compact('shippings','orderdetails'));
     }
 
     public function storeorder(Request $request){
         $carts = json_decode($request->carts);
+
         $deliveryAddress = $request->deliveryAddress;
         $shippingId = $request->shippingId;
         $totalItem = $request->totalItem;
         $totalAmount = $request->totalAmount;
-        $itemId = $request->itemId;
+        // $itemName = $request->name;
         $voucherno = uniqid();
         $orderdate = Carbon::now();
 
@@ -89,20 +93,41 @@ class FrontendController extends Controller
         $auth = Auth::user();
         $userid = $auth->id;
 
-        $order = new Order;
-        $order->voucherno = $voucherno;
-        $order->totalamount = $totalAmount;
-        $order->totalitem = $totalItem;
-        $order->status = $status;
-        $order->deliveryaddress = $deliveryAddress;
-        $order->shipping_id = $shippingId;
-        // $order->item_id= $itemId;
-        $order->orderdate = $orderdate;
-        $order->user_id = $userid;
-        $order->save();
+        // $order = new Order;
+        // $order->voucherno = $voucherno;
+        // $order->totalamount = $totalAmount;
+
+
+        // $order->totalitem = $totalItem;
+        // $order->status = $status;
+        // $order->deliveryaddress = $deliveryAddress;
+        // $order->shipping_id = $shippingId;
+        //$order->item_id= $itemId;
+        // $order->orderdate = $orderdate;
+       
+
+        // $order->user_id = $userid;
+        // $order->save();
+
+        $orderdetail = new OrderDetail;
+        $orderdetail->voucherno = $voucherno;
+        $orderdetail->totalamount = $totalAmount;
+        $orderdetail->totalitem = $totalItem;
+        $orderdetail->status = $status;
+        $orderdetail->deliveryaddress = $deliveryAddress;
+        $orderdetail->shipping_id = $shippingId;
+        //$orderdetail->itemname= $itemName;
+
+        $orderdetail->orderdate = $orderdate;        
+        $orderdetail->user_id = $userid;
+        $orderdetail->save();
+        // $orderdetail->order_id->attach($order->id)
+
+
 
         foreach ($carts as $value) {
-            $order->items()->attach($value->id,['qty'=>$value->qty]);
+            $orderdetail->items()->attach($value->id,['qty'=>$value->qty]);
+            // $orderdetail->item_id = $value->id;
         }
 
         return response()->json([
@@ -111,7 +136,29 @@ class FrontendController extends Controller
     }
 
     public function ordersuccess(){
+
+        // $orders = Order::take(1)->latest();
         return view('frontend.ordersuccess');
+    }
+
+    public function invoice(){
+
+        // $items = Item::all();
+        $orderdetails = OrderDetail::latest()->limit(1)->get();
+        return view('frontend.invoice', compact('orderdetails'));
+    }
+
+    public function purchase(){
+
+        $auth = Auth::user();
+        $orderdetails = OrderDetail::all();
+        return view('frontend.purchase', compact('orderdetails'));
+    }
+
+    public function purchasedetail($id){
+
+        $orderdetail = Orderdetail::find($id);
+        return view('frontend.purchasedetail', compact('orderdetail'));
     }
 
 

@@ -38,22 +38,22 @@
                         </thead>
                         <tbody>
                             @php $i = 1; @endphp
-                            @foreach($orders as $order)
+                            @foreach($orderdetails as $orderdetail)
                                 
                             <tr>
                                 <td>{{ $i++ }}</td>
-                                <td>{{ $order->voucherno}}</td>
-                                <td>{{ $order->totalamount}}</td>
-                                <td>{{ $order->totalitem}}</td>
-                                <td>{{ $order->orderdate }}</td>
-                                <td>{{ $order->deliveryaddress }}</td>
-                                <td>{{ $order->shipping->township->name}}</td>
-                                <td>{{ $order->user->name}}</td>
+                                <td>{{ $orderdetail->voucherno}}</td>
+                                <td>{{ $orderdetail->totalamount}}</td>
+                                <td>{{ $orderdetail->totalitem}}</td>
+                                <td>{{ $orderdetail->orderdate }}</td>
+                                <td>{{ $orderdetail->deliveryaddress }}</td>
+                                <td>{{ $orderdetail->shipping->township->name}}</td>
+                                <td>{{ $orderdetail->user->name}}</td>
                             
                                 
                              
                                 <td>
-	                                <a href="" class="btn btn-link text-theme p-1"><i class="fas fa-list-alt"></i></a>
+	                                <a href="{{ url('/dynamic_pdf', $orderdetail->id) }}" class="btn btn-link text-theme p-1"><i class="fas fa-list-alt"></i></a>
 	                                {{-- <form class="d-inline-block" action="" method="POST" onsubmit="return confirm('Are you sure want to delete?')">
 	                                   @csrf
 	                                   @method('DELETE')

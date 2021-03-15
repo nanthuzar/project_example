@@ -11,7 +11,7 @@ use App\Http\Controllers\ShippingController;
 use App\Http\Controllers\TownshipController;
 use App\Http\Controllers\CarpenterOrderController;
 use App\Http\Controllers\OrderConfirmController;
-use App\Http\Controllers\OrderController;
+use App\Http\Controllers\OrderDetailController;
 
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\AuthController;
@@ -48,6 +48,9 @@ Route::get('contact',[FrontendController::class, 'contact'])->name('frontend.con
 Route::get('about',[FrontendController::class, 'about'])->name('frontend.about');
 Route::post('/storeorder',[FrontendController::class, 'storeorder'])->name('/storeorder');
 Route::get('ordersuccess',[FrontendController::class, 'ordersuccess'])->name('frontend.ordersuccess');
+Route::get('invoice', [FrontendController::class, 'invoice'])->name('frontend.invoice');
+Route::get('purchase', [FrontendController::class, 'purchase'])->name('frontend.purchase');
+Route::get('purchasedetail/{id}', [FrontendController::class, 'purchasedetail'])->name('frontend.purchasedetail');
 
 Route::get('login',[AuthController::class, 'loginform'])->name('login');
 Route::post('login',[AuthController::class, 'login']);
@@ -56,6 +59,7 @@ Route::post('register',[AuthController::class, 'register']);
 
 Route::get('dynamic_pdf', 'App\Http\Controllers\DynamicPDFController@index');
 Route::get('/dynamic_pdf/pdf', 'App\Http\Controllers\DynamicPDFController@pdf');
+Route::get('/dynamic_pdf/{id}', 'App\Http\Controllers\DynamicPDFController@index');
 
 
 /*Backend*/
@@ -67,7 +71,7 @@ Route::resource('/carpenterorder', CarpenterOrderController::class);
 Route::resource('/shipping', ShippingController::class);
 Route::resource('/township', TownshipController::class);
 Route::resource('/orderconfirm', OrderConfirmController::class);
-Route::resource('/orderlist', OrderController::class);
+Route::resource('/orderlist', OrderDetailController::class);
 
 
 

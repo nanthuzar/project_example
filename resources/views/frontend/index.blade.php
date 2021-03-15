@@ -1,7 +1,44 @@
 <x-frontend>
 
 	<!-- carousel -->
-      <div class="carousel slide carousel-fade" data-bs-ride="carousel" id="Carousel">
+
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="d-block w-100" height="400px" src="{{ asset('photo/carousel1.jpg') }}" alt="First slide">
+            <div class="carousel_text px-2" style="color:#023e04;">
+                <h4 class="fonts">Welcome To Our Shop</h4>
+                <h1 class="fonts">Shwe Tha Myae Pin</h1>
+                <p class="my-4">A good varity of wooden door and window can be fond in our shop.</p>
+                <button class="btn btn-outline-primary">Shop Now</button>
+             </div>
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" height="400px" src="{{ asset('photo/carousel2.jpg') }}" alt="Second slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" height="400px" src="{{ asset('photo/carousel3.jpg') }}" alt="Third slide">
+          <div class="carousel_text d-none d-md-block" style="color:#FFD700;">
+              <h1 class="fonts">Customized size can also order.</h1>
+              <p class="mt-5">For your sweet home decoration...</p>
+              <button class="btn btn-outline-primary mt-2">Shop Now</button>
+          </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    </div>
+      {{-- <div class="carousel slide carousel-fade" data-bs-ride="carousel" id="Carousel">
          <div class="carousel-inner">
             <div class="carousel-item active">
                <img src="h1.jpg" class="img-fluid w-100">
@@ -27,17 +64,18 @@
          <a href="#Carousel" class="carousel-control-next" data-bs-slide="prev">
          <span class="carousel-control-next-icon"></span>
          </a>
-      </div>
+      </div> --}}
       <!-- end carousel -->
 
       <!-- item start-->
-      <div class="container my-3">
-      	<h4 class="text-center my-5">Newest Items</h4>
-         <div class="row">
+      <div class="container my-5">
+      	<h2 class="text-center title" data-aos="fade-up" data-aos-delay="500">Newest Items</h2>
+        <hr class="divided mb-5" data-aos="fade-up" data-aos-delay="500">
+         <div class="row mb-5" data-aos="fade-up" data-aos-delay="500">
 	         @foreach($newitems as $newitem)
 	         <div class="col col-6 col-md-4 col-lg-3 my-2">
 	         
-		        <div class="card h-100">
+		        <div class="card h-100 box">
 	                <img class="card-img-top" src="{{ $newitem->photo }}" width="100%" height="300px" alt="Card image cap">
 	                
 	                <div class="card-body">
@@ -46,7 +84,7 @@
 	                </div>
 	                <div class="card-footer">
 	                    <ul class="list-inline text-center">
-	                        <li class="list-inline-item"><a class="btn btn-warning" href="{{ route('frontend.detail', $newitem->id) }}"><i class="fas fa-eye"></i></a></li>
+	                        <li class="list-inline-item"><a class="btn btn-warning detailbtn" href="{{ route('frontend.detail', $newitem->id) }}"><i class="fas fa-eye"></i></a></li>
 	                        <li class="list-inline-item"><a class="btn btn-success addtoCart" data-id="{{ $newitem->id }}" data-name="{{ $newitem->name }}" data-price="{{ $newitem->price }}" data-photo="{{ asset($newitem->photo) }}" href=""><i class="fas fa-cart-arrow-down"></i></a></li>
 	                    </ul>                                    
 	                </div>
@@ -54,7 +92,8 @@
 	         </div>
 	         @endforeach
          </div>
-         <h4 class="text-center my-5">Popular Items</h4>
+         <h2 class="text-center pt-5 title" data-aos="fade-up" data-aos-delay="500">Popular Items</h2>
+         <hr class="divided mb-5" data-aos="fade-up" data-aos-delay="500">
          <div class="row">
          @foreach($popularitems as $popularitem)
          <div class="col col-6 col-md-4 col-lg-3 my-2">
@@ -77,12 +116,13 @@
          </div>
          @endforeach
          </div>
-         <h4 class="text-center my-5">Random Items</h4>
-         <div class="row">
+         <h2 class="text-center pt-5 title" data-aos="fade-up" data-aos-delay="500">Random Items</h2>
+         <hr class="divided mb-5" data-aos="fade-up" data-aos-delay="500">
+         <div class="row mb-5" data-aos="fade-up" data-aos-delay="500">
 	         @foreach($randomitems as $randomitem)
 	         <div class="col col-6 col-md-4 col-lg-3 my-2">
 	         
-		        <div class="card h-100">
+		        <div class="card h-100 box">
 	                <img class="card-img-top" src="{{ $randomitem->photo }}" width="100%" height="300px" alt="Card image cap">
 	                
 	                <div class="card-body">
@@ -91,7 +131,7 @@
 	                </div>
 	                <div class="card-footer">
 	                    <ul class="list-inline text-center">
-	                        <li class="list-inline-item"><a class="btn btn-warning" href="{{ route('frontend.detail', $randomitem->id) }}"><i class="fas fa-eye"></i></a></li>
+	                        <li class="list-inline-item"><a class="btn btn-warning detailbtn" href="{{ route('frontend.detail', $randomitem->id) }}"><i class="fas fa-eye"></i></a></li>
 	                        <li class="list-inline-item"><a class="btn btn-success addtoCart" data-id="{{ $randomitem->id }}" data-name="{{ $randomitem->name }}" data-price="{{ $randomitem->price }}" data-photo="{{ asset($randomitem->photo) }}" href=""><i class="fas fa-cart-arrow-down"></i></a></li>
 	                    </ul>                                    
 	                </div>
@@ -146,17 +186,18 @@
 
          </div>
       </div> --}}
+
       <!-- carousel -->
-      <div style="  background-image: linear-gradient(180deg, #fafafa,#dddddd);">
+      <div style="background-image: linear-gradient(180deg, #fafafa,#dddddd);">
          <div class="container">
             <div class="carousel slide py-5 mt-5" data-bs-ride="carousel" id="Carousel1">
-               <h2 class="text-center">What Our Clients Say!</h2>
-               <hr class="divided mb-5">
-               <div class="carousel-inner">
+               <h2 class="text-center mt-5 title">Testmonials</h2>
+               <hr class="divided mb-5" data-aos="fade-up" data-aos-delay="500">
+               <div class="carousel-inner" data-aos="fade-up" data-aos-delay="500">
                   <div class="carousel-item active">
                      <div class="user offset-2 col-8 text-center">
                         <div class="user_image">
-                           <img src="client3.jpg" style="width: 180px; height:180px;" class="rounded-circle">
+                           <img src="{{ asset('photo/client4.png') }}" style="width: 180px; height:180px;" class="rounded-circle">
                         </div>
                         <div class="user_text">
                            <p class="my-4">Good afternoon. I am very pleased with the quality of the work of your employee representing your wonderful company. Thanks a lot.</p>
@@ -188,7 +229,7 @@
                   <div class="carousel-item">
                      <div class="user offset-2 col-8 text-center">
                         <div class="user_image">
-                           <img src="client4.png" style="width: 180px; height:180px;" class="rounded-circle">
+                           <img src="" style="width: 180px; height:180px;" class="rounded-circle">
                         </div>
                         <div class="user_text">
                            <p class="mt-5">Excellent client manager. He is always accurate, all promises are fulfilled, all questions get answers, the company presents very attentive and positive approach.</p>
@@ -217,10 +258,10 @@
 
 	<!-- start of slideshow -->
 
-    <div class="container my-5">
-      <h2 class="text-center">Our Partners</h2>
-      <hr class="divided mb-5">
-       <section class="customer-logos slider">
+    <div class="container py-5">
+      <h2 class="text-center mt-5 title" data-aos="fade-up" data-aos-delay="500">Our Partners</h2>
+      <hr class="divided mb-5" data-aos="fade-up" data-aos-delay="500">
+       <section class="customer-logos slider mb-5" data-aos="fade-up" data-aos-delay="500">
           <div class="slide"><img src="https://image.freepik.com/free-vector/luxury-letter-e-logo-design_1017-8903.jpg"></div>
           <div class="slide"><img src="https://image.freepik.com/free-vector/3d-box-logo_1103-876.jpg"></div>
           <div class="slide"><img src="https://image.freepik.com/free-vector/blue-tech-logo_1103-822.jpg"></div>

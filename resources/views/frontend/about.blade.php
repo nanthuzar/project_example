@@ -1,6 +1,6 @@
 <x-frontend>
       <!-- carousel -->
-      <div class="carousel slide carousel-fade" data-bs-ride="carousel" id="Carousel">
+      {{-- <div class="carousel slide carousel-fade" data-bs-ride="carousel" id="Carousel">
          <div class="carousel-inner">
             <div class="carousel-item active">
                <img src="dshowr.jpg" class="img-fluid w-100">
@@ -27,29 +27,35 @@
          <a href="#Carousel" class="carousel-control-next" data-bs-slide="prev">
          <span class="carousel-control-next-icon"></span>
          </a>
-      </div>
+      </div> --}}
       <!-- end carousel -->
-      <div class="container my-5">
-         <h1 class="text-center">Our Story</h1>
-         <div class="row">
-            <div class="col col-12 col-lg-6">
-               <img src="client1.jpg" class="rounded-circle img-fluid">
+
+
+
+      <div class="container py-5">
+         <div class="row" data-aos="fade-up" data-aos-delay="500">
+            <div class="col-3 col-md-3 col-lg-3">
+               <img src="{{ asset('photo/client6.jpg')}}" width="200px" height="200px" class="rounded-circle img-fluid">
             </div>
-            <div class="col col-12col-lg-6">
-               <p>Shwe Thamae Pin was founded in 1990 by U Hla Thaung and Daw Than Myint. With more than thirty years of experience, Shwe Thamae Pin provided an extensive range of performance details for our bamboo, windows and doors.</p>
+            <div class="col-9 col-md-9 col-lg-9">
+               <h1 class="text-center">Our Story</h1>
+               <div class="col-12 col-md-12 col-lg-12">
+                  <p class="text-center mt-3">Shwe Thamae Pin was founded in 1990 by U Hla Thaung and Daw Than Myint. With more than thirty years of experience, Shwe Thamae Pin provided an extensive range of performance details for our bamboo, windows and doors. Most of the construction companies are brought from us. They are pleased by our services from our shop. We also make our partners trust and make the products' quality the best. 
+               </p>
+               </div>
             </div>
-         </div>        
+         </div>
       </div>
 
 
 
 
-      <div class="container my-5">
+      <div class="container my-5" data-aos="fade-up" data-aos-delay="500">
          <h1 class="text-center">Our Mission</h1>
          <p>We offer an extensive range of performance details for our bamboo, windows and doors. They are tested to our standard sections or we can offer bespoke to match your specific requirements. We aim to provide a service to both building professionals and private individuals, with personalised details to suit a home owner.</p>
          <p>All our products are made-to-order so if the standard options do not meet your requirements please let us know what you require. We provide quality windows and doors designed to meet your requirements.</p>
       </div>
-      <div class="container my-5">
+      <div class="container my-5" data-aos="fade-up" data-aos-delay="500">
          <h1 class="text-center">Our Services</h1>
          <ul>
             <li>We pride ourselves on offering a friendly personal service and an exceptional product at the most competitive prices on the market.</li>
@@ -59,7 +65,7 @@
       </div>
       <!-- carousel -->
       <div style="  background-image: linear-gradient(180deg, #fafafa,#dddddd);">
-         <div class="container">
+         <div class="container" data-aos="fade-up" data-aos-delay="500">
             <div class="carousel slide py-5 mt-5" data-bs-ride="carousel" id="Carousel1">
                <h2 class="text-center">Testimonials</h2>
                <hr class="divided mb-5">
@@ -67,7 +73,7 @@
                   <div class="carousel-item active">
                      <div class="user offset-2 col-8 text-center">
                         <div class="user_image">
-                           <img src="client3.jpg" style="width: 180px; height:180px;" class="rounded-circle">
+                           <img src="{{asset('photo/client3.jpg')}}" style="width: 180px; height:180px;" class="rounded-circle">
                         </div>
                         <div class="user_text">
                            <p class="my-4">Good afternoon. I am very pleased with the quality of the work of your employee representing your wonderful company. Thanks a lot.</p>

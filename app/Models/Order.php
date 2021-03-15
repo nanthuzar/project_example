@@ -21,11 +21,15 @@ class Order extends Model
     	return $this->belongsTo('App\Models\Shipping');
     }
 
-    public function items(){
-    	return $this->belongsToMany('App\Models\Item', 'item_order', 'order_id','item_id')->withPivot('qty');
-    }
+    // public function items(){
+    // 	return $this->belongsToMany('App\Models\Item', 'item_order', 'order_id','item_id')->withPivot('qty');
+    // }
 
     public function user(){
     	return $this->belongsTo('App\Models\User');
+    }
+
+    public function orderdetails(){
+        return $this->hasMany('App\Models\OrderDetail');
     }
 }

@@ -21,7 +21,7 @@
      <h4>Customer Data</h4>
     </div>
     <div class="col-md-5" align="right">
-     <a href="{{ url('dynamic_pdf/pdf') }}" class="btn btn-danger">Convert into PDF</a>
+     <a href="{{ url('dynamic_pdf/pdf')}}" class="btn btn-danger">Convert into PDF</a>
     </div>
    </div>
    <br />
@@ -39,15 +39,15 @@
       </tr>
      </thead>
      <tbody>
-     @foreach($order_data as $order)
+     @foreach($order_data as $orderdetail)
       <tr>
-       <td>{{ $order->voucherno}}</td>
-       <td>{{ $order->totalamount}}</td>
-       <td>{{ $order->totalitem}}</td>
-       <td>{{ $order->orderdate}}</td>
-       <td>{{ $order->deliveryaddress}}</td>
-       <td>{{ $order->shipping_id}}</td>
-       <td>{{ $order->user_id}}</td>
+       <td>{{ $orderdetail->voucherno}}</td>
+       <td>{{ $orderdetail->totalamount}}</td>
+       <td>{{ $orderdetail->totalitem}}</td>
+       <td>{{ $orderdetail->orderdate}}</td>
+       <td>{{ $orderdetail->deliveryaddress}}</td>
+       <td>{{ $orderdetail->shipping_id}}</td>
+       <td>{{ $orderdetail->user_id}}</td>
       </tr>
      @endforeach
      </tbody>

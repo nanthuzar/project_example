@@ -39,9 +39,9 @@ $(document).ready(function(){
 		localStorage.setItem("cart",cartData);
 
 		cartNoti();
-
 	});
-		function cartNoti(){
+
+	function cartNoti(){
 		var cart = localStorage.getItem('cart');
 		if (cart) {
 			var cartArray = JSON.parse(cart);
@@ -95,7 +95,7 @@ $(document).ready(function(){
 
 					shoppingcartData +=	`<div class="row card-item">
 						<div class="col-md-4">
-							<img src="${photo}" class="img-fluid">
+							<img src="${photo}" width="150px" class="img-fluid">
 						</div>
 						<div class="col-md-3">
 							<div class="card-body">
@@ -131,11 +131,9 @@ $(document).ready(function(){
 
 				$('#cartDiv').html(shoppingcartData);
 				$('.totality').html(total.toString()+' Ks');
-
 			}
 		}
 	}
-
 
 	$('#cartDiv').on('click','.inc', function(){
 		var id = $(this).data('id');
@@ -156,8 +154,6 @@ $(document).ready(function(){
 		showTable();
 		cartNoti();	
 	});
-	
-
 	
 	$('#cartDiv').on('click','.dec', function(){
 		var id = $(this).data('id');
@@ -181,7 +177,6 @@ $(document).ready(function(){
 		localStorage.setItem('cart',cartData);
 		showTable();
 		cartNoti();
-
 	});
 
 	$('#cartDiv').on('click','.remove_btn', function(){
@@ -205,7 +200,6 @@ $(document).ready(function(){
 
 	$('.checkoutBtn').on('click', function(){
 		var cart = localStorage.getItem('cart');
-		//console.log(cart);
 
 		var cartArray = JSON.parse(cart);
 
@@ -223,7 +217,8 @@ $(document).ready(function(){
 		var totalAmount =0;
 		var totalItem =0;
 		$.each(cartArray, function(i,v){
-
+			var id = v.id;
+			var name = v.name;
 			var price = v.price;
 			var qty = v.qty;
 			var subtotal = price * qty;
@@ -231,6 +226,8 @@ $(document).ready(function(){
 			totalItem += qty++;
 			totalAmount += subtotal++;
 			totalAmount += shippingfee;
+
+			// console.log(name);
 		});
 
 		$.ajaxSetup({
@@ -240,8 +237,10 @@ $(document).ready(function(){
 	    });
 
 	    $.post('/storeorder',{
-	    	carts:cart, deliveryAddress:deliveryAddress, shippingId:shippingId,
+	    	carts:cart, name:name, deliveryAddress:deliveryAddress, shippingId:shippingId,
 	    	totalItem:totalItem, totalAmount:totalAmount}
+
+	 
 	    	
 	    	,function(response){
 	    	//localstorage clear

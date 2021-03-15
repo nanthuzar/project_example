@@ -17,9 +17,9 @@ class Item extends Model
     	return $this->belongsTo('App\Models\Category');
     }
 
-    public function orders(){
-    	return $this->belongsToMany('App\Models\Order', 'item_order', 'item_id', 'order_id')->withPivot('qty');
-    }
+    // public function orders(){
+    // 	return $this->belongsToMany('App\Models\Order', 'item_order', 'item_id', 'order_id')->withPivot('qty');
+    // }
 
     public function carpenters(){
     	return $this->hasMany('App\Models\Carpenter');
@@ -31,7 +31,14 @@ class Item extends Model
 
     public function orderconfirm(){
         return $this->hasOne('App\Models\OrderConfirm');
-
-
     }
+
+    public function orderdetails(){
+        return $this->belongsToMany('App\Models\OrderDetail', 'item_order_detail', 'item_id', 'order_detail_id')->withPivot('qty');
+    }
+
+    // public function items(){
+    //     return $this->belongsToMany('App\Models\Item', 'item_order
+    //         _detail', 'order_detail_id','item_id')->withPivot('qty');
+    // }
 }

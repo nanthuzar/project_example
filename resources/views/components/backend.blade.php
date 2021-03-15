@@ -201,7 +201,7 @@
         <div class="row main-content">
             <!--Sidebar left-->
             
-            <div class="col-sm-3 col-xs-6 sidebar pl-0">
+            <div class="col-sm-3 col-md-3 col-lg-3 col-xs-6 sidebar pl-0">
                 <div class="inner-sidebar mr-3">
                     
                     <!--Image Avatar-->
@@ -264,7 +264,7 @@
             </div>
             
             <!--Sidebar left-->
-            <div class="col-sm-9 col-xs-12 main-panel pt-3 pl-0">
+            <div class="col-sm-9 col-md-9 col-lg-9 col-xs-6 main-panel pt-3 pl-0">
                 {{ $slot }}
 
                 <!--Footer-->

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Order;
+use App\Models\OrderDetail;
 
-class OrderController extends Controller
+class OrderDetailController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        
-        $orders = Order::all();
-        return view('backend.order.list',compact('orders'));
+        //
+        $orderdetails = OrderDetail::all();
+        return view('backend.orderdetail.list',compact('orderdetails'));
     }
 
     /**
@@ -40,6 +40,12 @@ class OrderController extends Controller
         //
     }
 
+    public function invoice($id)
+    {
+        
+        return view('backend.orderdetail.invoice');
+    }
+
     /**
      * Display the specified resource.
      *
@@ -57,10 +63,9 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function invoice($id)
+    public function edit($id)
     {
-        
-        return view('backend.order.invoice');
+        //
     }
 
     /**
