@@ -134,7 +134,7 @@
 
       <!-- start of slideshow -->
 
-    <div class="container my-5">
+    <div class="container py-5">
       <h2 class="text-center">Our Partners</h2>
       <hr class="divided mb-5">
        <section class="customer-logos slider">

@@ -59,7 +59,11 @@ Route::post('register',[AuthController::class, 'register']);
 
 Route::get('dynamic_pdf', 'App\Http\Controllers\DynamicPDFController@index');
 Route::get('/dynamic_pdf/pdf', 'App\Http\Controllers\DynamicPDFController@pdf');
-Route::get('/dynamic_pdf/{id}', 'App\Http\Controllers\DynamicPDFController@index');
+
+// Route::get('/purchasedetail/pdf', 'App\Http\Controllers\DynamicPDFController@purchasedetailpdf');
+
+
+// Route::get('/dynamic_pdf/{id}', 'App\Http\Controllers\DynamicPDFController@index');
 
 
 /*Backend*/

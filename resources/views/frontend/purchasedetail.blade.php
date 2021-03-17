@@ -1,11 +1,20 @@
 <x-frontend>
 
 	<div class="container">
+		<div class="row pt-5">
+			<div class="col-12 col-sm-12 col-md-12 col-lg-12">
+				<h3 class="text-center">ရွှေသမှဲ့ပင် ဝါးဓနိ</h3>
+				<p class="text-center mt-3">Phone No: 09773907753, 09269822182, 0973074512</p>
+			</div>			
+		</div>
 		
-		<h3 class="text-center">ရွှေသမှဲ့ပင် ဝါးဓနိ</h3>
-		<p class="text-center mt-3">Phone No: 09773907753, 09269822182, 0973074512</p>
+		{{-- <div class="row">
+			<div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex justify-content-end">
+				<a class="btn btn-danger" href="{{ url('/purchasedetail/pdf')}}">Download Invoice</a>
+			</div>	
+		</div> --}}
 	
-		<h3 class="text-right">INVOICE VOUCHER</h3>
+		<h3 class="text-right mt-3">INVOICE VOUCHER</h3>
 		<hr>
 		@php $i = 1; @endphp
 	
@@ -40,19 +49,31 @@
 			<tbody>
 				
 				
-					@php 
-					$items=$orderdetail->items;
-				
-					@endphp
-					@foreach($items as $item)
-					<tr>
-					<th scope="col">{{$i++}}</th>
-					<th scope="col">{{$item->name}}</th>
-					<th scope="col">{{$item->pivot->qty}}</th>
-					<th scope="col">{{$item->price}}</th>
-					<th scope="col">{{$item->price * $item->pivot->qty}}</th>
+				@php 
+				$items=$orderdetail->items;
+			
+				@endphp
+				@foreach($items as $item)
+				<tr>
+					<td scope="col">{{$i++}}</td>
+					<td scope="col">{{$item->name}}</td>
+					<td scope="col">{{$item->pivot->qty}}</td>
+					<td scope="col">{{$item->price}}</td>
+					<td scope="col">{{$item->price * $item->pivot->qty}}</td>
 				</tr>
 					@endforeach
+				<tr>
+				<td><td>
+				<td></td>
+				<th>Shipping Fee</th>
+				<th>{{ $orderdetail->shipping->fee }}</th>
+				</tr>
+				<tr>
+					<td><td>
+					<td></td>
+					<th>Total</th>
+					<th>{{ $orderdetail->totalamount + $orderdetail->shipping->fee }}</th>
+				</tr>
 				
 			</tbody>
 		</table>

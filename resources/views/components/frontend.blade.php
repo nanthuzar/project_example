@@ -12,13 +12,17 @@
     <link rel="stylesheet" href="{{asset('plugin/bootstrap4/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('plugin/fontawesome/css/all.min.css')}}">
     <link rel="stylesheet" href="{{asset('plugin/icofont/icofont.min.css')}}">
-     <link rel="stylesheet" href="{{ URL::asset('assets/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ URL::asset('assets/css/bootstrap.min.css') }}" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Libre+Baskerville&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('photo/logo.png')}}">
+   
+
     <!-- AOS -->
     <link rel="stylesheet"  href="https://unpkg.com/aos@next/dist/aos.css">
 
@@ -85,14 +89,18 @@
               </div>                  
            </div>
            <div class="col-md-6 col-lg-3 col-12  px-5 mt-3 mb-2 text-center signin">
+            @guest
               <a href="#" style="text-decoration: none; color:black;" ><i class="fa fa-user "></i> Sign or Create Account  </a>
+            @else
+              <a href="#" style="text-decoration: none; color:black;" ><i class="fa fa-user "></i> Account  </a>
+            @endif
               <div class="dropdown-content">
                  @guest
                  <a class="dropdown-item" href="{{ route('login')}}"><i class="far fa-user px-2 mt-1 "><span class="mx-2">Login</span></i></a>
                  <a class="dropdown-item" href="{{ route('register')}}"><i class="far fa-user px-2 mt-1"><span class="mx-2">Register</span></i></a>
                  @else
                  <p>You are a {{ Auth::user()->name }}</p>
-                 <a class="dropdown-item" href="#"><i class="far fa-user px-2 mt-1"><span class="mx-2">Account</span></i></a>
+                 {{-- <a class="dropdown-item" href="#"><i class="far fa-user px-2 mt-1"><span class="mx-2">Account</span></i></a> --}}
                  <a class="dropdown-item" href="{{ route('frontend.purchase')}}"><i class="fas fa-clipboard-list px-2 mt-1"></i><span class="mx-2">Purchase History</span></i></a>
                  <a class="dropdown-item" href="javascript:void(0)" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="far fa-user px-2 mt-1"><span class="mx-2">Logout</span></i></a>
                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -281,10 +289,10 @@
                   <div class="col-4 text-center">
                      <h5>Payments</h5>
                   </div>
-                  <div class="col-2 px-3"><img src="{{asset('photo/1.png')}}" width="50px" height="50px"></div>
-                  <div class="col-2 px-3"><img src="{{asset('photo/2.png')}}" width="50px" height="50px"></div>
-                  <div class="col-2 px-3"><img src="{{asset('photo/3.png')}}" width="50px" height="50px"></div>
-                  <div class="col-2 px-3"><img src="{{asset('photo/4.png')}}" width="50px" height="50px"></div>
+                  <div class="col-2 px-3"><img src="{{asset('photo/kbzpay.png')}}" width="50px" height="50px"></div>
+                  <div class="col-2 px-3"><img src="{{asset('photo/aya.png')}}" width="50px" height="50px"></div>
+                  <div class="col-2 px-3"><img src="{{asset('photo/cbpay.png')}}" width="50px" height="50px"></div>
+                  <div class="col-2 px-3"><img src="{{asset('photo/wave.png')}}" width="50px" height="50px"></div>
                 </div>
             </div>
         </div>

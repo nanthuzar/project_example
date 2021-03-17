@@ -26,6 +26,8 @@
     <!--Bootstrap Calendar-->
     <link rel="stylesheet" href="{{asset('js/calendar/bootstrap_calendar.css')}}">
 
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('photo/logo.png')}}">
+
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -205,16 +207,16 @@
                 <div class="inner-sidebar mr-3">
                     
                     <!--Image Avatar-->
-                    <div class="avatar text-center">
+                    {{-- <div class="avatar text-center">
                         <img src="assets/img/client-img4.png" alt="" class="rounded-circle" />
                         <p><strong>Jonathan Clarke</strong></p>
                         <span class="text-primary small"><strong>UI/UX Designer</strong></span>
-                    </div>
+                    </div> --}}
                     <!--Image Avatar-->
 
                     <!--Sidebar Navigation Menu-->
                     <div class="sidebar-menu-container">
-                        <ul class="sidebar-menu mt-4 mb-4">
+                        <ul class="sidebar-menu pt-4 mb-4">
                             @if(Auth::user()->name == 'admin')
                             {{-- <li class="parent">
                                 <a href="widgets.html" class=""><i class="fa fa-puzzle-piece mr-3"></i>

@@ -207,13 +207,15 @@ $(document).ready(function(){
 
 		var shippingId = $('#floatingSelect').val();
 
-		extractor=/\((.*)\)/
+		// extractor=/\((.*)\)/
 
-		var shippingfee = $('#floatingSelect option:selected').text();
-		var shippingfee = extractor.exec(shippingfee)[1];
+		// var shippingfee = $('#floatingSelect option:selected').text();
+
+		// var shippingfee = extractor.exec(shippingfee)[1];
 		
-		var shippingfee = parseFloat(shippingfee.replace(/,/g, ''));
+		// var shippingfee = parseFloat(shippingfee.replace(/,/g, ''));
 
+		// var totalsubAmount = 0;
 		var totalAmount =0;
 		var totalItem =0;
 		$.each(cartArray, function(i,v){
@@ -224,10 +226,11 @@ $(document).ready(function(){
 			var subtotal = price * qty;
 
 			totalItem += qty++;
-			totalAmount += subtotal++;
-			totalAmount += shippingfee;
-
-			// console.log(name);
+			totalAmount+= subtotal++;
+			
+			// totalAmount+= shippingfee;
+			console.log(totalAmount);
+			
 		});
 
 		$.ajaxSetup({

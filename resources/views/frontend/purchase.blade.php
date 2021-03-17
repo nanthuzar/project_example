@@ -29,7 +29,7 @@
 				<th scope="col-1">{{ $orderdetail->voucherno }}</th>
 				<th scope="col-1">{{ $orderdetail->orderdate }}</th>
 				<th scope="col-1">{{ $orderdetail->totalitem }}</th>
-				<th scope="col-1">{{ $orderdetail->totalamount }}</th>				
+				<th scope="col-1">{{ $orderdetail->totalamount + $orderdetail->shipping->fee }}</th>				
 				
 				<th><a class="btn btn-warning" href="{{ route('frontend.purchasedetail', $orderdetail->id) }}">Detail</a></th>				
 

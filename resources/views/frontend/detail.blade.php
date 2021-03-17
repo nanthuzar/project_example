@@ -125,17 +125,28 @@
                             <h3 class="mb-3" id="item_name"> Item Name: {{$item->name}}</h3>
                             <h3 class="mb-3" id="customize_item_name"></h3>
 
-                            <div class="mt-3 mb-4">
-                                <select id="example">
-                                    <option value="1">1</option>
-                                    <option value="2" selected>2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
+                            <div class="rate ">
+                                {{-- <div class="col-12 col-sm-12 col-md-12 col-lg-12"> --}}
+                                    <input type="radio" id="star1" name="rate" value="1" />
+                                    <label for="star1" title="text">1 stars</label>
+                                    <input type="radio" id="star2" name="rate" value="2" />
+                                    <label for="star2" title="text">2 stars</label>
+                                    <input type="radio" id="star3" name="rate" value="3" />
+                                    <label for="star3" title="text">3 stars</label>
+                                    <input type="radio" id="star4" name="rate" value="4" />
+                                    <label for="star4" title="text">4 stars</label>
+                                    <input type="radio" id="star5" name="rate" value="5" />
+                                    <label for="star5" title="text">5 star</label>  
+                                {{-- </div> --}}
                             </div>
-                            <h4 class="item_price">Price: {{$item->price}}</h4>
-                            <h4 class="calculation_price"></h4>
+                            
+
+                            
+                                <h4 class="item_price col-md-12">Price: {{$item->price}}</h4>
+                                <h4 class="calculation_price"></h4>
+                               
+                               
+                            
                             <hr>
 
                             <p class="product-slug">Description: {{ $item->description }}</p>
@@ -213,19 +224,6 @@
                                     </div>                                     
                                  </ul>
                             @endif
-
-                            
-
-                            
-                            
-                            {{-- <div class="addtocart_divthree">
-                                <button type="button" class="btn btn-theme rounded-0 mr-3 px-3 addtoCartthree">
-                                    <i class="fa fa-shopping-cart mr-3"></i> 
-                                    ADD TO CART 3
-                                </button>
-                            </div> --}}
-                           
-
                         </div>
                     </div>
                 </div>
@@ -236,7 +234,7 @@
         </div>
 
         <!--Footer-->
-        <div class="row mt-5 mb-4 footer">
+        {{-- <div class="row mt-5 mb-4 footer">
             <div class="col-sm-8">
                 <span>&copy; All rights reserved 2019 designed by <a class="text-info" href="#">A-Fusion</a></span>
             </div>
@@ -244,7 +242,7 @@
                 <a href="#" class="ml-2">Contact Us</a>
                 <a href="#" class="ml-2">Support</a>
             </div>
-        </div>
+        </div> --}}
     <!--Footer-->
     </div>
 

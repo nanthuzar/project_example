@@ -9,15 +9,17 @@ use App\Models\Township;
 use App\Models\Shipping;
 use App\Models\OrderDetail;
 
+use Auth;
+
 class DynamicPDFController extends Controller
 {
     //
-    function index($id){
+    function index(){
 
     	// $shippings = Shipping::all();
     	// $townships = Township::all();
 
-    	$order_data = $this->get_order_data($id);
+    	$order_data = $this->get_order_data();
     	return view('dynamic_pdf')->with('order_data', $order_data);
 
         // $orderdetail = OrderDetail::find($id);
@@ -33,6 +35,7 @@ class DynamicPDFController extends Controller
 
     function pdf(){
     	$pdf = \App::make('dompdf.wrapper');
+      $pdf->setPaper('A4', 'landscape');
     	$pdf->loadHTML($this->convert_order_data_to_html());
 
     	return $pdf->stream();
@@ -41,7 +44,7 @@ class DynamicPDFController extends Controller
     function convert_order_data_to_html(){
     	$order_data = $this->get_order_data();
     	$output = '
-    	<h3 align="center">Customer Data</h3>
+    	<h3 align="center">Briefly Sales Report</h3>
      	<table width="100%" style="border-collapse: collapse; border: 0px;">
       	<tr>
 		    <th style="border: 1px solid; padding:12px;" width="20%">Voucher No</th>
@@ -69,5 +72,58 @@ class DynamicPDFController extends Controller
      $output .= '</table>';
      return $output;
     }
+
+    // function get_purchasedetail_data($id){
+    //   $orderdetail = OrderDetail::find($id);
+
+    //   return $orderdetail;
+    // }
+
+    // function purchasedetailpdf(){
+    //   $pdf = \App::make('dompdf.wrapper');
+    //   $pdf->loadHTML($this->convert_purchasedetail_data_to_html());
+    // }
+
+    // function convert_purchasedetail_data_to_html(){
+    //   $auth = $auth = Auth::user();
+    //   $orderdetail = $this->get_purchasedetail_data($id);
+    //   $output = '
+    //   <div class="container">
+    // <div class="row pt-5">
+    //   <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+    //     <h3 class="text-center">ရွှေသမှဲ့ပင် ဝါးဓနိ</h3>
+    //     <p class="text-center mt-3">Phone No: 09773907753, 09269822182, 0973074512</p>
+    //   </div>      
+    // </div>
+    // <div class="row">
+    //   <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex justify-content-end">
+    //     <a class="btn btn-danger" href="{{ url('/purchasedetail/pdf')}}">Download Invoice</a>
+    //   </div>  
+    // </div>
+  
+    // <h3 class="text-right mt-3">INVOICE VOUCHER</h3>
+    // <hr>
+    // @php $i = 1; @endphp
+   
+    
+    // <div class="row">
+    //   <div class="col-sm-6 col-md-6 col-lg-6">
+    //     <p>Name: {{ Auth::user()->name}}</p>
+    //   </div>
+    //   <div class="col-sm-6 col-md-6 col-lg-6">
+    //     <p>Date: {{ $orderdetail->created_at}}</p>
+    //   </div>
+    // </div>
+    // <div class="row">
+    //   <div class="col-sm-6 col-md-6 col-lg-6">
+    //     <p>Address: {{ $orderdetail->deliveryaddress}}</p>
+    //   </div>
+    //   <div class="col-sm-6 col-md-6 col-lg-6">
+    //     <p>Voucher No: {{ $orderdetail->voucherno }}</p>
+    //   </div>
+    // </div>
+    // '
+
+    // }
     
 }

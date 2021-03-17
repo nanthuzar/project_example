@@ -4,9 +4,9 @@
     <div class="container py-5 px-5">
         <div class="row">
             <div class="col offset-md-1 col-md-10 offset-lg-2 col-lg-8 col-12" data-aos="fade-up" data-aos-delay="500">
-                <div class="login-box my-5" style="background-color:#e5e4e2;">
+                <div class="login-box my-5" style="background-color:#e5e4e2">
             </div>
-            <form action="{{ route('login') }}" method="POST">
+            <form action="{{ route('login') }}" method="POST"  style="background-color:#e5e4e2">
                 @csrf
                 <div class="row py-5">
                     <div class="offset-md-1 col-md-5 col-sm-6 col-12 login-box-info">
