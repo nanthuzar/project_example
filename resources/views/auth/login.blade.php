@@ -13,7 +13,7 @@
                             
                         
                         <h3 class="my-4 px-2">Sign up</h3>
-                        <p class="mb-4 px-2">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.</p>
+                        <p class="mb-4 px-2">If you don't have an account, please register here!!</p>
                         <p class="text-center"><a href="{{ route('register') }}" class="btn btn-light rgbtn">Register here</a></p>
                     </div>
                     <div class="col-md-6 col-lg-5 col-12 login-box-form p-4">

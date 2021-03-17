@@ -65,7 +65,7 @@
 				<p class="purchasefooter title my-5 justify-content-start d-flex">Thank you for purchasing.</p>
 			</div>
 			<div class="col-12 col-md-6 col-lg-6 col-sm-6">
-				<p class="purchasefooter title my-5 justify-content-end d-flex">Sign <img class="mx-4" src="{{ asset('/img/sign.PNG') }}" width="50px" height="50px"></p>
+				<p class="purchasefooter title my-5 justify-content-end d-flex">Sign <img class="mx-4" src="{{ asset('/img/sign.png') }}" width="50px" height="50px"></p>
 			</div>
 		</div>
 		

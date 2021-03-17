@@ -18,7 +18,8 @@
                             <div class="row">
                                 <div class="col-md-6 col-sm-6 col-12 login-box-info">
                                     <h3 class="my-4">Sign in</h3>
-                                    <p class="mb-4">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.</p>
+                                    <p class="mb-4">Once you create an account, just login here!
+                                    Please enjoy shopping with our services.</p>
                                     <p class="text-center"><a href="{{ route('login') }}" class="btn btn-light rgbtn">Login here</a></p>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-12 login-box-form p-4">
