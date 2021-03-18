@@ -11,7 +11,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                ) 
+                
                 <div class="modal-body">
                 
                 ၁ ပေ ပတ်လည် (၁ ပေ x ၁ ပေ) = {{ $item->oneft_price }}
