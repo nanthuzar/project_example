@@ -35,7 +35,7 @@
 					<div class="d-flex flex-xl-row flex-lg-row flex-md-row flex-sm-column flex-column
 				  	 bd-highlight justify-content-between mb-3 mt-4">
 					  	<div class="p-2 bd-highlight order-xl-1 order-lg-1 order-md-1 order-sm-2 order-2 justify-content-center">
-					  		<a href="" class="more-detail d-block text-center btn btn-warning"> Go Shopping </a>
+					  		<a href="{{ route('frontend.index')}}" class="more-detail d-block text-center btn btn-warning"> Go Shopping </a>
 					  	</div>
 					  	<div class="p-2 bd-highlight order-xl-2 order-lg-2 order-md-2 order-sm-1 order-1 justify-content-center">
 					  		<span class="fs-6 pe-5 text-uppercase"> Subtotal : </span>

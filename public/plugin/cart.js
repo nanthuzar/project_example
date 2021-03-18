@@ -229,7 +229,7 @@ $(document).ready(function(){
 			totalAmount+= subtotal++;
 			
 			// totalAmount+= shippingfee;
-			console.log(totalAmount);
+			//console.log(totalAmount);
 			
 		});
 
