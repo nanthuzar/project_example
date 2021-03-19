@@ -2,7 +2,7 @@
 
 	<div class="container">
 		
-		<h3 class="text-center">ရွှေသမှဲ့ပင် ဝါးဓနိ</h3>
+		<h3 class="text-center pt-3">ရွှေသမှဲ့ပင် ဝါးဓနိ</h3>
 		<p class="text-center mt-3">Phone No: 09773907753, 09269822182, 0973074512</p>
 	
 		<h3 class="text-right">INVOICE VOUCHER</h3>

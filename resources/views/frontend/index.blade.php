@@ -13,7 +13,7 @@
             <img class="d-block w-100" height="400px" src="{{ asset('photo/carousel1.jpg') }}" alt="First slide">
             <div class="carousel_text px-2" style="color:#023e04;">
                 <h4 class="fonts">Welcome To Our Shop</h4>
-                <h1 class="fonts">Shwe Tha Myae Pin</h1>
+                <h1 class="fonts">Shwe Tha Mae Pin</h1>
                 <p class="my-4">A good varity of wooden door and window can be fond in our shop.</p>
                 <button class="btn btn-outline-primary">Shop Now</button>
              </div>
@@ -94,7 +94,7 @@
          </div>
          <h2 class="text-center pt-5 title" data-aos="fade-up" data-aos-delay="500">Popular Items</h2>
          <hr class="divided mb-5" data-aos="fade-up" data-aos-delay="500">
-         <div class="row">
+         <div class="row" data-aos="fade-up" data-aos-delay="500">
          @foreach($popularitems as $popularitem)
          <div class="col col-6 col-md-4 col-lg-3 my-2">
          
@@ -191,7 +191,7 @@
       <div style="background-image: linear-gradient(180deg, #fafafa,#dddddd);">
          <div class="container">
             <div class="carousel slide py-5 mt-5" data-bs-ride="carousel" id="Carousel1">
-               <h2 class="text-center mt-5 title">Testmonials</h2>
+               <h2 class="text-center mt-5 title" data-aos="fade-up" data-aos-delay="500">Testimonials</h2>
                <hr class="divided mb-5" data-aos="fade-up" data-aos-delay="500">
                <div class="carousel-inner" data-aos="fade-up" data-aos-delay="500">
                   <div class="carousel-item active">

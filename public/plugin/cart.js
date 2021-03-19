@@ -103,7 +103,7 @@ $(document).ready(function(){
 								<p class="card-text">${price}</p>
 							</div>
 						</div>
-						<div class="col-sm-3 col-6 col-md-2 pl-0 pr-4 mb-4 mt-4">
+						<div class="col-sm-4 col-4 col-md-4 col-lg-2 pl-0 pr-4 mb-4 mt-5">
                             <div class="input-group mt-2">
                                 <div class="input-group-append">
                                     <button class="btn btn-secondary dec" type="button" data-id="${i}"><i class="fa fa-minus"></i></button>
@@ -114,7 +114,7 @@ $(document).ready(function(){
                                 </div>
                             </div>
                         </div>
-                        <div class="offset-md-1 col-md-1 mt-5">
+                        <div class="col-3 col-md-1 mt-5">
                         	<p>${subtotal}</p>
                         </div>
                         <div class="col-md-1 mt-5">

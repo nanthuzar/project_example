@@ -266,7 +266,7 @@
             </div>
             
             <!--Sidebar left-->
-            <div class="col-sm-9 col-md-9 col-lg-9 col-xs-6 main-panel pt-3 pl-0">
+            <div class="col-sm-9 col-md-9 col-lg-9 col-xs-6 main-panel px-5 pt-3 pl-0">
                 {{ $slot }}
 
                 <!--Footer-->
